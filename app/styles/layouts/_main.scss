@@ -1,16 +1,250 @@
+
+@font-face {
+  font-family: "GT Sectra Display Bold Italic";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Bold-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Bold";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Bold.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Light Italic";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Light-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Medium Italic";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Medium-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Medium";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Medium.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Regular Italic";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Regular-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Regular";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Regular.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Super Italic";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Super-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Display Super";
+  src: url("/fonts/GT-Sectra-Display-Trial/GT-Sectra-Display-Trial-Super.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Black Italic";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Black-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Black";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Black.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Bold";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Bold.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Bold Italic";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Bold-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Book";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Book.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Medium Italic";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Medium-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Medium";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Medium.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Regular Italic";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Regular-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Fine Regular";
+  src: url("/fonts/GT-Sectra-Fine-Trial/GT-Sectra-Fine-Trial-Regular.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Black Italic";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Black-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Black";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Black.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Bold Italic";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Bold-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Bold";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Bold.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Book Italic";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Book-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Book";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Book.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Medium Italic";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Medium-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Medium";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Medium.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Regular Italic";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Regular-Italic.otf");
+}
+
+@font-face {
+  font-family: "GT Sectra Regular";
+  src: url("/fonts/GT-Sectra-Trial/GT-Sectra-Trial-Regular.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Black Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Black-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Black";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Black.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Bold Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Bold-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Bold";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Bold.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Light Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Light-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Light";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Light.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Medium Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Medium-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Medium";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Medium.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Regular Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Regular-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Regular";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Regular.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Thin Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Thin-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Thin";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Thin.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Ultra Bold Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Ultra-Bold-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Ultra Bold";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Ultra-Bold.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Ultra Light Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Ultra-Light-Oblique.otf");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro Ultra Light";
+  src: url("/fonts/GT-Walsheim-Pro-Trial/GT-Walsheim-Pro-Trial-Ultra-Light.otf");
+}
+
+.clear {
+  clear: both;
+}
+
 /**
  * This combination of styles pushes the footer to the botto of the page even
  * when the content is short.
  */
 .page-wrapper {
+  color: $color-grey-font;
   display: flex;
   flex-direction: column;
+  font-family: "GT Walsheim Pro Regular";
+  font-size: 23px;
   height: 100%;
   min-height: 100vh;
 
   .main-content {
     flex-grow: 1;
   }
+}
+
+h2 {
+  color: $color-grey-font;
+  font-family: "GT Walsheim Pro Medium";
+  font-size: 42px;
 }
 
 .page-contain {
@@ -48,8 +282,34 @@ header.content-header {
   h1 {
     @include grid-column(9);
     color: #fff;
+    font-family: "GT Walsheim Pro Medium";
     font-size: 57px;
-    margin: 175px 15%;
+    margin: 175px 15% 90px;
     text-align: center;
+  }
+
+  p {
+    text-align: center;
+
+    .arrow-down {
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "GT Walsheim Pro Medium";
+      font-size: 17px;
+      padding-bottom: 90px;
+      position: relative;
+
+      &::after {
+        background: url('/images/pngs/white-triangle.png');
+        content: '';
+        height: 32px;
+        margin-right: calc(-25% + 20px);
+        position: absolute;
+        right: 50%;
+        top: 30px;
+        width: 39px;
+      }
+    }
   }
 }
