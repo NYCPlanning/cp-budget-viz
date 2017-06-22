@@ -1,14 +1,86 @@
 .main-header {
-  background: $color-royalblue;
-  color: $color-white;
-  margin-bottom: 50px;
-  padding: 10px;
+  background: transparent;
+  color: #000;
+  display: table;
+  padding: 20px 100px 20px 15px;
+  width: 100%;
 
-  .branding {
-    color: $color-white;
-    font-size: map-get($font-size-h3, desktop);
-    font-weight: map-get($font-weight, bold);
+  a.branding {
+    display: table;
     text-decoration: none;
+
+    img {
+      float: left;
+    }
+
+    p {
+      color: #000;
+      display: table-cell;
+      font-size: 17px;
+      font-weight: normal;
+      padding-left: 15px;
+      vertical-align: middle;
+    }
+  }
+
+  .nav-toggle {
+    right: 15px;
+    top: 50px;
+  }
+
+  @media #{$bp-desktop-large-up} {
+    margin-bottom: 20px;
+    padding-left: 80px;
+  }
+
+  .header-links {
+    display: none;
+    vertical-align: middle;
+
+    a {
+      color: $color-navblue;
+      display: inline-block;
+      text-decoration: none;
+      width: 25%;
+
+      .selected {
+        border-bottom: 2px solid $color-navblue;
+      }
+
+      .agencies {
+        background: $color-lightblue;
+        padding: 5px 30px 5px 10px;
+        position: relative;
+
+        &::after {
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 10px solid $color-lightblue;
+          content: '';
+          height: 0;
+          position: absolute;
+          right: 10px;
+          top: 7px;
+          width: 0;
+        }
+
+        &::before {
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 15px solid $color-navblue;
+          content: '';
+          height: 0;
+          position: absolute;
+          right: 6px;
+          top: 5px;
+          width: 0;
+        }
+      }
+    }
+
+    @media #{$bp-desktop-large-up} {
+      display: table-cell;
+    }
   }
 }
 
@@ -16,7 +88,11 @@
   @include position(absolute, 10px 10px null null);
   background: none;
   border: 0;
-  color: $color-white;
+  color: $color-navblue;
+
+  @media #{$bp-desktop-large-up} {
+    display: none;
+  }
 
   .icon {
     @include size(24px);

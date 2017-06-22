@@ -1,15 +1,26 @@
 header.main-header
-  a(href='/').branding My Logo
+  a(href='/').branding
+    img(src='/images/pngs/Seal_of_New_York_City_BW.png')/ 
+    p NYC Capital Strategy Report
+
+  div.header-links
+    a(href='#') Principles
+    a(href='#')
+      span.selected Priorities
+    a(href='#') Financing
+    a(href='#')
+      span.agencies Agencies
+
   button(type='button').nav-toggle.js-toggle-nav
     svg.icon.icon-hamburger
       use(xlink:href='#icon-hamburger')
   nav.header-nav
     ul.unstyled-list
       li
-        a(href='#') About
+        a(href='#') Principles
       li
-        a(href='#') Store
+        a(href='#') Priorities
       li
-        a(href='#') Portfolio
+        a(href='#') Financing
       li
-        a(href='#') Contact Us
+        a(href='#') Agencies
