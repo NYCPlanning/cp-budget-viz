@@ -235,6 +235,10 @@
   height: 100%;
   min-height: 100vh;
 
+  .page-contain {
+    max-width: 1280px;
+  }
+
   .main-content {
     flex-grow: 1;
   }
@@ -368,55 +372,55 @@ header.content-header {
   .submessage {
     background: $color-white;
     padding: 5px 30px 15px;
+  }
+}
 
-    .principles a {
-      background-image:
-        linear-gradient(
-          to right,
-          rgba(191, 255, 223, 0) 50%,
-          $color-light-green 50%
-        );
-      background-position: 0 0;
-      background-size: 200.1% auto;
-      color: $color-dark-green;
-      cursor: pointer;
-      display: inline-block;
-      padding-right: 30px;
-      position: relative;
-      text-decoration: none;
-      transition: background-position .5s ease-out;
+.more-info a {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(191, 255, 223, 0) 50%,
+      $color-light-green 50%
+    );
+  background-position: 0 0;
+  background-size: 200.1% auto;
+  color: $color-dark-green;
+  cursor: pointer;
+  display: inline-block;
+  padding-right: 30px;
+  position: relative;
+  text-decoration: none;
+  transition: background-position .5s ease-out;
 
-      &::after {
-        border-bottom: 6px solid transparent;
-        border-left: 10px solid $color-white;
-        border-top: 6px solid transparent;
-        content: '';
-        height: 0;
-        position: absolute;
-        right: 10px;
-        top: 9px;
-        width: 0;
-      }
+  &::after {
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid $color-white;
+    border-top: 6px solid transparent;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    width: 0;
+  }
 
-      &::before {
-        border-bottom: 10px solid transparent;
-        border-left: 15px solid $color-green;
-        border-top: 10px solid transparent;
-        content: '';
-        height: 0;
-        position: absolute;
-        right: 7px;
-        top: 5px;
-        width: 0;
-      }
+  &::before {
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid $color-green;
+    border-top: 10px solid transparent;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    width: 0;
+  }
 
-      &:hover {
-        background-position: -99.99% 0;
+  &:hover {
+    background-position: -99.99% 0;
 
-        &::after {
-          border-left: 10px solid $color-light-green;
-        }
-      }
+    &::after {
+      border-left: 10px solid $color-light-green;
     }
   }
 }
@@ -450,8 +454,89 @@ header.content-header {
     text-align: center;
   }
 
-  .improvements {
+  .improvement {
     border: 1px solid $color-black;
+    height: 564px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+
+    .top-half {
+      height: 50%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      &.improvements-buildings {
+        background: url('/images/pngs/12428.08.018.png');
+        background-size: cover;
+      }
+
+      &.improvements-parks {
+        background: url('/images/pngs/ER_7623_sm.png');
+        background-size: cover;
+      }
+
+      &.improvements-schools {
+        background: url('/images/pngs/NYCHA_1_sm.png');
+        background-size: cover;
+      }
+
+      &.improvements-paths {
+        background: url('/images/pngs/TRANSPO---Queens-Boulevard-Corridor-Calming_sm.png');
+        background-size: cover;
+      }
+
+      &.improvements-ferries {
+        background: url('/images/pngs/TRANSPO---First-New-Ferry-arrives_sm.png');
+        background-size: cover;
+      }
+
+      &.improvements-shelters {
+        background: url('/images/pngs/NYCHASandyWaterproofing.png');
+        background-size: cover;
+      }
+    }
+
+    .bottom-half {
+      bottom: 0;
+      height: 50%;
+      left: 0;
+      padding: 0 20px;
+      position: absolute;
+      width: 100%;
+
+      h3 {
+        font-size: 24px;
+        line-height: 30px;
+        margin: 10px 0;
+        text-align: left;
+      }
+
+      p {
+        font-size: 17px;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+
+    @media #{$bp-desktop-up} {
+      float: left;
+      margin: 10px;
+      width: calc(33.3% - 20px);
+    }
+
+    @media #{$bp-desktop-large-up} {
+      height: 464px;
+    }
+  }
+
+  h3 {
+    font-family: "GT Sectra Display Bold";
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
   }
 
   @media #{$bp-desktop-up} {
@@ -460,14 +545,22 @@ header.content-header {
       line-height: 53px;
     }
 
+    h3 {
+      font-size: 24px;
+      line-height: 30px;
+      text-align: left;
+    }
+
     .grid-1 {
       @include grid-column(1);
     }
 
-    #section-1,
-    #section-2,
-    #section-3 {
+    .partial-page {
       @include grid-column(10);
+    }
+
+    .full-page {
+      @include grid-column(12);
     }
 
     p {
