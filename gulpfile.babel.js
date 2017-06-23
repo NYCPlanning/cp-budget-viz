@@ -61,6 +61,7 @@ gulp.task('copy', () =>
   gulp.src([
     `${src}/*`,
     `!${src}/_*`,
+    `${src}/fonts/**/*`,
     `!${src}/*.pug`
     // Uncomment the next line if you need a basic htaccess file.
     // `node_modules/apache-server-configs/dist/.htaccess`
