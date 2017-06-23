@@ -89,7 +89,7 @@
       }
 
       a {
-        color: $color-black;
+        color: $color-white;
         display: inline-block;
         font-size: 17px;
         text-decoration: none;
@@ -101,6 +101,10 @@
 
       .agencies-menu {
         max-width: 250px;
+
+        .agencies {
+          color: $color-black;
+        }
 
         .hidden-nav {
           display: none;
@@ -271,5 +275,9 @@
 .interior-page {
   header.content-header {
     background: none;
+
+    .main-header .header-links .left-links a {
+      color: $color-black;
+    }
   }
 }
