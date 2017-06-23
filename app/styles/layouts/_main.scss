@@ -370,12 +370,21 @@ header.content-header {
     padding: 5px 30px 15px;
 
     .principles a {
+      background-image:
+        linear-gradient(
+          to right,
+          rgba(255, 255, 225, 0) 50%,
+          $color-light-green
+        );
+      background-position: 0 0;
+      background-size: 200% auto;
       color: $color-dark-green;
       cursor: pointer;
       display: inline-block;
       padding-right: 30px;
       position: relative;
       text-decoration: none;
+      transition: background-position .5s ease-out;
 
       &::after {
         border-bottom: 6px solid transparent;
@@ -402,7 +411,7 @@ header.content-header {
       }
 
       &:hover {
-        background: $color-light-green;
+        background-position: -99.99% 0;
 
         &::after {
           border-left: 10px solid $color-light-green;
@@ -441,6 +450,10 @@ header.content-header {
     text-align: center;
   }
 
+  .improvements {
+    border: 1px solid $color-black;
+  }
+
   @media #{$bp-desktop-up} {
     h2 {
       font-size: 43px;
@@ -451,7 +464,9 @@ header.content-header {
       @include grid-column(1);
     }
 
-    #section-1 {
+    #section-1,
+    #section-2,
+    #section-3 {
       @include grid-column(10);
     }
 
