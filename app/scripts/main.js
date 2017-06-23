@@ -72,4 +72,24 @@ import 'jquery.scrollto';
     $(e.currentTarget).blur();
     $('body').toggleClass('nav-active');
   }, 200, true));
+
+  $('.header-links .agencies').on('click', function() {
+    if ($('.agencies-menu').hasClass('active')) {
+      $('.agencies-menu').removeClass('active');
+    } else {
+      $('.agencies-menu').addClass('active');
+    }
+  });
+
+  $('.header-nav .agencies').on('click', function(e) {
+    e.stopPropagation();
+    $('.main-header, .header-nav').addClass('selected');
+  });
+
+  $(document).on('click', function (e) {
+    if ($('.header-nav').hasClass('selected')) {
+      $('.main-header, .header-nav').removeClass('selected');
+    }
+  });
+
 })(jquery);

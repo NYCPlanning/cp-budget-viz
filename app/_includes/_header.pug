@@ -1,26 +1,63 @@
-header.main-header
-  a(href='/').branding
-    img(src='/images/pngs/Seal_of_New_York_City_BW.png')/ 
-    p NYC Capital Strategy Report
+header.content-header
+  header.main-header
 
-  div.header-links
-    a(href='#') Principles
-    a(href='#')
-      span.selected Priorities
-    a(href='#') Financing
-    a(href='#')
-      span.agencies Agencies
+    a(href='/').branding
+      img(src='/images/pngs/nyc-seal.png')/ 
+      p NYC Capital Strategy Report
 
-  button(type='button').nav-toggle.js-toggle-nav
-    svg.icon.icon-hamburger
-      use(xlink:href='#icon-hamburger')
-  nav.header-nav
-    ul.unstyled-list
-      li
+    div.header-links
+      div.left-links
         a(href='#') Principles
-      li
-        a(href='#') Priorities
-      li
+        a(href='#').selected Priorities
         a(href='#') Financing
-      li
-        a(href='#') Agencies
+      div.right-links
+        div.agencies-menu
+          a(href='#').agencies Agencies
+          ul.unstyled-list.hidden-nav
+            li
+              a(href='#') Transportation &amp; Transit
+            li
+              a(href='#') Environmental Protection
+            li
+              a(href='#') Public Safety
+            li
+              a(href='#') Education, Health, Hospitals, and Social Services
+            li
+              a(href='#') Housing and Economic Development
+            li
+              a(href='#') Citywide Administrative Services
+            li
+              a(href='#') Culturals &amp; Recreation
+            li
+              a(href='#') Energy Efficiency and Citywide Equipment
+
+    button(type='button').nav-toggle.js-toggle-nav
+      div#menuToggle
+        input(type="checkbox")
+        span
+        span
+        span
+    
+    nav.header-nav
+      ul.unstyled-list
+        li
+          a(href='#') Principles
+        li
+          a(href='#') Priorities
+        li
+          a(href='#') Financing
+        li
+          a.agencies Agencies
+            select.agencylist
+              option Transportation &amp; Transit
+              option Environmental Protection
+              option Public Safety
+              option Education, Health, Hospitals, and Social Services
+              option Housing and Economic Development
+              option Citywide Administrative Services
+              option Culturals &amp; Recreation
+              option Energy Efficiency and Citywide Equipment
+    
+  h3 NYC Capital Strategy
+
+  h1 NYC is the best city in the world. We’re investing $95.85 billion over the next decade to keep it that way.
