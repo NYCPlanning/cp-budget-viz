@@ -368,6 +368,47 @@ header.content-header {
   .submessage {
     background: $color-white;
     padding: 5px 30px 15px;
+
+    .principles a {
+      color: $color-dark-green;
+      cursor: pointer;
+      display: inline-block;
+      padding-right: 30px;
+      position: relative;
+      text-decoration: none;
+
+      &::after {
+        border-bottom: 6px solid transparent;
+        border-left: 10px solid $color-white;
+        border-top: 6px solid transparent;
+        content: '';
+        height: 0;
+        position: absolute;
+        right: 10px;
+        top: 9px;
+        width: 0;
+      }
+
+      &::before {
+        border-bottom: 10px solid transparent;
+        border-left: 15px solid $color-green;
+        border-top: 10px solid transparent;
+        content: '';
+        height: 0;
+        position: absolute;
+        right: 7px;
+        top: 5px;
+        width: 0;
+      }
+
+      &:hover {
+        background: $color-light-green;
+
+        &::after {
+          border-left: 10px solid $color-light-green;
+        }
+      }
+    }
   }
 }
 
@@ -379,6 +420,7 @@ header.content-header {
 
     .submessage {
       padding: 15px 30px 50px;
+      text-align: center;
     }
   }
 }
