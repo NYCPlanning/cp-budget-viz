@@ -439,6 +439,7 @@ header.content-header {
 
 .content-body.index-body {
   @include grid-column(12);
+  margin-bottom: 0;
 
   h2 {
     color: $color-black;
@@ -577,6 +578,7 @@ header.content-header {
 .datavis {
   background: $color-skyblue;
   margin: 40px -20px 0 -20px;
+  padding-bottom: 50px;
 
   .investmentfilters {
     margin: 0 auto 40px;
@@ -586,6 +588,7 @@ header.content-header {
   #infrastructure {
     margin: 0 auto;
     max-width: 640px;
+    padding-bottom: 100px;
     padding-left: 15px;
   }
 
@@ -703,4 +706,8 @@ header.content-header {
       padding-left: 128px;
     }
   }
+}
+
+.main-footer {
+  margin-top: 0;
 }
