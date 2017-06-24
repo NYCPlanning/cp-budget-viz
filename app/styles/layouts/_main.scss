@@ -454,6 +454,10 @@ header.content-header {
     text-align: center;
   }
 
+  .improvements {
+    margin-bottom: 40px;
+  }
+
   .improvement {
     border: 1px solid $color-black;
     height: 564px;
@@ -566,6 +570,137 @@ header.content-header {
     p {
       font-size: 23px;
       line-height: 36px;
+    }
+  }
+}
+
+.datavis {
+  background: $color-skyblue;
+  margin: 40px -20px 0 -20px;
+
+  .investmentfilters {
+    margin: 0 auto 40px;
+    max-width: 640px;
+  }
+
+  #infrastructure {
+    margin: 0 auto;
+    max-width: 640px;
+    padding-left: 15px;
+  }
+
+  .investmentfilter {
+    background: $color-white;
+    border: 2px solid $color-black;
+    color: $color-black;
+    font-family: "GT Walsheim Pro Regular";
+    font-size: 16px;
+    height: 44px;
+    letter-spacing: 3px;
+    margin: 5px 0;
+    opacity: .5;
+    text-transform: uppercase;
+    width: calc(50% - 10px);
+
+    &:hover {
+      background: $color-aqua;
+    }
+
+    &.selected {
+      background: $color-aqua;
+      opacity: 1;
+    }
+  }
+
+  li {
+    display: none;
+    list-style-type: none;
+    margin: 2px 0 0;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: 1s all;
+
+    &::after {
+      clear: both;
+    }
+
+    .budgetname {
+      display: table-cell;
+      font-family: "GT Walsheim Pro Medium";
+      font-size: 15px;
+      max-width: calc(100% - 155px);
+      text-transform: lowercase;
+      vertical-align: middle;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .budgetpercent,
+    .budgetamount {
+      display: table-cell;
+      font-family: "GT Walsheim Pro Black";
+      font-size: 15px;
+      padding: 0 0 0 10px;
+      vertical-align: middle;
+      width: 70px;
+    }
+
+    .budget {
+      background: $color-green;
+      display: table-cell;
+      float: left;
+      height: 100%;
+      min-height: 30px;
+      vertical-align: middle;
+      width: 80px;
+
+      &:hover {
+        background: $color-dark-green;
+      }
+    }
+  }
+
+  h4 {
+    display: table-cell;
+    margin-top: 5px;
+    vertical-align: middle;
+  }
+
+  .tycsa,
+  .lifecyclevis,
+  .servicevis,
+  .fundingvis {
+    height: 0;
+  }
+
+  @media #{$bp-desktop-up} {
+    li {
+      .budget {
+        width: 300px;
+
+        .budgetname,
+        .budgetpercent,
+        .budgetamount {
+          font-size: 18px;
+        }
+
+        .budgetpercent,
+        .budgetamount {
+          padding: 0 30px 10px;
+        }
+      }
+    }
+
+    .investmentfilter {
+      width: calc(25% - 10px);
+    }
+
+    #infrastructure {
+      max-width: 1024px;
+      padding-left: 128px;
     }
   }
 }
