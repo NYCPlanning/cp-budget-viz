@@ -222,6 +222,14 @@
   clear: both;
 }
 
+.grid-1 {
+  @include grid-column(1);
+}
+
+.grid-3 {
+  @include grid-column(3);
+}
+
 /**
  * This combination of styles pushes the footer to the botto of the page even
  * when the content is short.
@@ -648,10 +656,6 @@ header.content-header {
       text-align: left;
     }
 
-    .grid-1 {
-      @include grid-column(1);
-    }
-
     .partial-page {
       @include grid-column(10);
     }
@@ -806,6 +810,127 @@ header.content-header {
 
 .main-footer {
   margin-top: 0;
+}
+
+.chart {
+  background: $color-aquablue;
+  float: left;
+  padding: 30px 10px;
+  width: 100%;
+
+  h2 {
+    text-align: center;
+  }
+
+  .subchart,
+  .chartpost {
+    color: $color-grey-label;
+    font-size: 23px;
+    line-height: 29px;
+    text-align: center;
+  }
+
+  th,
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  th {
+    border-bottom: 2px solid $color-grey-font;
+    color: $color-grey-font;
+    font-family: 'GT Walsheim Pro Bold';
+    font-size: 17px;
+    line-height: 34px;
+    min-height: 45px;
+    padding: 5px 10px;
+  }
+
+  td {
+    border-bottom: 1px solid $color-blueborder;
+    font-family: 'GT Walsheim Pro Regular';
+    font-size: 17px;
+    line-height: 24px;
+    padding: 5px 10px;
+    text-align: right;
+
+    &:first-of-type {
+      font-size: 15px;
+      min-height: 35px;
+      text-align: left;
+    }
+  }
+}
+
+.scroll-chart {
+  margin-bottom: 20px;
+  max-width: 100%;
+  position: relative;
+
+  .chart-container.mobile {
+    background: $color-aqua-dark;
+    -moz-box-shadow: inset 2px 0 7px $color-black;
+    -webkit-box-shadow: inset 2px 0 7px $color-black;
+    box-shadow: inset 2px 0 7px $color-black;
+    left: 50%;
+    overflow-x: scroll;
+    position: absolute;
+    top: 0;
+    width: 50%;
+  }
+
+  table.responsive {
+    th {
+      &:first-of-type {
+        height: 46px;
+        min-height: 46px;
+      }
+    }
+
+    td,
+    th {
+      &:first-of-type {
+        display: none;
+
+        @media #{$bp-desktop-up} {
+          display: table-cell;
+        }
+      }
+    }
+
+    @media #{$bp-desktop-up} {
+      margin: 0 auto;
+      width: 90%;
+    }
+  }
+
+  table.firstcolumn {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+
+    tr {
+      &:first-of-type {
+        height: 46px;
+        min-height: 46px;
+      }
+    }
+
+    td,
+    th {
+      display: none;
+
+      &:first-of-type {
+        display: block;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+      }
+    }
+  }
 }
 
 .interior-page {

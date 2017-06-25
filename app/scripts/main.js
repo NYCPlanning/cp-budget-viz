@@ -112,202 +112,238 @@ import * as d3 from 'd3';
                          debug: true } )
 
   function showInfo(data, tabletop) {
-        
-        // $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
 
-        // $.each( tabletop.sheets(), function(i, sheet) {
-        //   $("#table_info").append("<p>" + sheet.name + " has " + sheet.column_names.join(", ") + "</p>");
-        // });
+    $.each( tabletop.sheets("By Agency").all(), function(i, infrastructure) {
+      
+      if (infrastructure.Agency !== 'Agency') {
 
+        var displayAmountRaw = infrastructure.TYCSAllocation.toString();
+        var displayAmount;
+        if (displayAmountRaw.length > 8) {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'M';
+          displayAmount = displayAmount.replace(/,/,'.');
+        } else {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+          displayAmount = displayAmount.replace(/,/,'.');
+        }
 
-        $.each( tabletop.sheets("By Agency").all(), function(i, infrastructure) {
-          
-          if (infrastructure.Agency !== 'Agency') {
+        var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><h4><span class="budgetpercent">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></li>');
 
-            var displayAmountRaw = infrastructure.TYCSAllocation.toString();
-            var displayAmount;
-            if (displayAmountRaw.length > 8) {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'M';
-              displayAmount = displayAmount.replace(/,/,'.');
-            } else {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
-              displayAmount = displayAmount.replace(/,/,'.');
-            }
-
-            var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><h4><span class="budgetpercent">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></li>');
-
-            budget_array.push(infrastructure.Percent);
-            cat_li.appendTo("#infrastructure");
-
-          }
-          
-        });
-
-        $.each( tabletop.sheets("By Ten-Year Plan Category").all(), function(i, category) {
-          if (category.Agency !== 'Agency') {
-            var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
-            var numBudget = category.TYCSAllocation.replace(/\,/g,'');
-
-            var displayAmountRaw = category.TYCSAllocation.toString();
-            var displayAmount;
-            if (displayAmountRaw.length > 9) {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
-              displayAmount = displayAmount.replace(/,/,'.');
-            } else {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'K';
-              displayAmount = displayAmount.replace(/,/,'.');
-            }
-
-            var by_cat = $('<li class="tycsa ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.TYPCategory + '</span></h4></li>');
-
-            by_cat.appendTo("#infrastructure");
-            cat_array.push(numBudget);
-          }
-        });
-
-        $.each( tabletop.sheets("By Lifecycle Category").all(), function(i, category) {
-          if (category.Agency !== 'LifecycleCategory') {
-            var lifecycleName = category.LifecycleCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
-            var lifecycleBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
-
-            var displayAmountRaw = category.TYCSAllocation.toString();
-            var displayAmount;
-            if (displayAmountRaw.length > 9) {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
-              displayAmount = displayAmount.replace(/,/,'.');
-            } else {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'K';
-              displayAmount = displayAmount.replace(/,/,'.');
-            }
-
-            var by_life = $('<li class="lifecyclevis ' + lifecycleName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.LifecycleCategory + '</span></h4></li>');
-
-            by_life.appendTo("#infrastructure");
-            life_array.push(lifecycleBudget);
-          }
-        });
-
-        $.each( tabletop.sheets("By Service Category").all(), function(i, category) {
-          if (category.Agency !== 'ServiceCategory') {
-            var serviceName = category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
-            var serviceBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
-
-            var displayAmountRaw = category.TYCSAllocation.toString();
-            var displayAmount;
-            if (displayAmountRaw.length > 11) {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
-              displayAmount = displayAmount.replace(/,/,'.');
-            } else {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
-              displayAmount = displayAmount.replace(/,/,'.');
-            }
-
-            var by_service = $('<li class="servicevis ' + serviceName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.ServiceCategory + '</span></h4></li>');
-
-            by_service.appendTo("#infrastructure");
-            service_array.push(serviceBudget);
-          }
-        });
-
-        $.each( tabletop.sheets("By Funding Source").all(), function(i, category) {
-          if (category.Agency !== 'Agency') {
-            var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
-            var numBudget = category.TYCSAllocation.replace(/\,/g,'');
-
-            var displayAmountRaw = category.TYCSAllocation.toString();
-            var displayAmount;
-            if (displayAmountRaw.length > 11) {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
-              displayAmount = displayAmount.replace(/,/,'.');
-            } else {
-              displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
-              displayAmount = displayAmount.replace(/,/,'.');
-            }
-
-            var by_source = $('<li class="fundingvis ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.Agency + '</span></h4></li>');
-
-            by_source.appendTo("#infrastructure");
-            source_array.push(numBudget);
-          }
-        });
-        
-
-
-        d3.selectAll(".allindustry").data(budget_array).transition().style("height", function(d) { return (d * 1000) + "px"; } );
-
-        $('.allindustry').click(function() {
-
-          var thisIndustry = $(this).children('h4').children('.budgetname').html();
-          var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
-
-          $('.category').html(thisIndustry);
-
-          $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
-
-          d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) { 
-            if ($(this).hasClass(agencyName)) { 
-              return 'table'; 
-            } else {
-              return 'none';
-            }
-          }).style('margin', function(d) { 
-            if ($(this).hasClass(agencyName)) { 
-              return '2px 0 0'; 
-            } else {
-              return '0';
-            }
-          }).style("height", function(d) { 
-            if ($(this).hasClass(agencyName)) { 
-              return (d / 10000) + "px"; 
-            }
-          });
-
-        });
-
-        $('button.agency').click(function() {
-          $('.investmentfilter').removeClass('selected');
-          $(this).addClass('selected');
-
-          $('.category').html('');
-
-          $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
-
-          d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d * 1000) + "px"; } );
-        });
-
-        $('button.lifecycle').click(function() {
-          $('.investmentfilter').removeClass('selected');
-          $(this).addClass('selected');
-
-          $('.category').html('');
-
-          $('.tycsa, .allindustry, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
-
-          d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
-        });
-
-        $('button.service').click(function() {
-          $('.investmentfilter').removeClass('selected');
-          $(this).addClass('selected');
-
-          $('.category').html('');
-
-          $('.tycsa, .allindustry, .lifecyclevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
-
-          d3.selectAll(".servicevis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
-        });
-
-        $('button.source').click(function() {
-          $('.investmentfilter').removeClass('selected');
-          $(this).addClass('selected');
-
-          $('.category').html('');
-
-          $('.tycsa, .allindustry, .lifecyclevis, .servicevis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
-
-          d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 10000) + "px"; } );
-        })
+        budget_array.push(infrastructure.Percent);
+        cat_li.appendTo("#infrastructure");
 
       }
+      
+    });
+
+    $.each( tabletop.sheets("By Ten-Year Plan Category").all(), function(i, category) {
+      if (category.Agency !== 'Agency') {
+        var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+        var numBudget = category.TYCSAllocation.replace(/\,/g,'');
+
+        var displayAmountRaw = category.TYCSAllocation.toString();
+        var displayAmount;
+        if (displayAmountRaw.length > 9) {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+          displayAmount = displayAmount.replace(/,/,'.');
+        } else {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'K';
+          displayAmount = displayAmount.replace(/,/,'.');
+        }
+
+        var by_cat = $('<li class="tycsa ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.TYPCategory + '</span></h4></li>');
+
+        by_cat.appendTo("#infrastructure");
+        cat_array.push(numBudget);
+      }
+    });
+
+    $.each( tabletop.sheets("By Lifecycle Category").all(), function(i, category) {
+      if (category.Agency !== 'LifecycleCategory') {
+        var lifecycleName = category.LifecycleCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+        var lifecycleBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
+
+        var displayAmountRaw = category.TYCSAllocation.toString();
+        var displayAmount;
+        if (displayAmountRaw.length > 9) {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+          displayAmount = displayAmount.replace(/,/,'.');
+        } else {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'K';
+          displayAmount = displayAmount.replace(/,/,'.');
+        }
+
+        var by_life = $('<li class="lifecyclevis ' + lifecycleName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.LifecycleCategory + '</span></h4></li>');
+
+        by_life.appendTo("#infrastructure");
+        life_array.push(lifecycleBudget);
+      }
+    });
+
+    $.each( tabletop.sheets("By Service Category").all(), function(i, category) {
+      if (category.Agency !== 'ServiceCategory') {
+        var serviceName = category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+        var serviceBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
+
+        var displayAmountRaw = category.TYCSAllocation.toString();
+        var displayAmount;
+        if (displayAmountRaw.length > 11) {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+          displayAmount = displayAmount.replace(/,/,'.');
+        } else {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+          displayAmount = displayAmount.replace(/,/,'.');
+        }
+
+        var by_service = $('<li class="servicevis ' + serviceName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.ServiceCategory + '</span></h4></li>');
+
+        by_service.appendTo("#infrastructure");
+        service_array.push(serviceBudget);
+      }
+    });
+
+    $.each( tabletop.sheets("By Funding Source").all(), function(i, category) {
+      if (category.Agency !== 'Agency') {
+        var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+        var numBudget = category.TYCSAllocation.replace(/\,/g,'');
+
+        var displayAmountRaw = category.TYCSAllocation.toString();
+        var displayAmount;
+        if (displayAmountRaw.length > 11) {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+          displayAmount = displayAmount.replace(/,/,'.');
+        } else {
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+          displayAmount = displayAmount.replace(/,/,'.');
+        }
+
+        var by_source = $('<li class="fundingvis ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.Agency + '</span></h4></li>');
+
+        by_source.appendTo("#infrastructure");
+        source_array.push(numBudget);
+      }
+    });
+    
+
+
+    d3.selectAll(".allindustry").data(budget_array).transition().style("height", function(d) { return (d * 1000) + "px"; } );
+
+    $('.allindustry').click(function() {
+
+      var thisIndustry = $(this).children('h4').children('.budgetname').html();
+      var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
+
+      $('.category').html(thisIndustry);
+
+      $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
+
+      d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) { 
+        if ($(this).hasClass(agencyName)) { 
+          return 'table'; 
+        } else {
+          return 'none';
+        }
+      }).style('margin', function(d) { 
+        if ($(this).hasClass(agencyName)) { 
+          return '2px 0 0'; 
+        } else {
+          return '0';
+        }
+      }).style("height", function(d) { 
+        if ($(this).hasClass(agencyName)) { 
+          return (d / 10000) + "px"; 
+        }
+      });
+
+    });
+
+    $('button.agency').click(function() {
+      $('.investmentfilter').removeClass('selected');
+      $(this).addClass('selected');
+
+      $('.category').html('');
+
+      $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
+
+      d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d * 1000) + "px"; } );
+    });
+
+    $('button.lifecycle').click(function() {
+      $('.investmentfilter').removeClass('selected');
+      $(this).addClass('selected');
+
+      $('.category').html('');
+
+      $('.tycsa, .allindustry, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
+
+      d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
+    });
+
+    $('button.service').click(function() {
+      $('.investmentfilter').removeClass('selected');
+      $(this).addClass('selected');
+
+      $('.category').html('');
+
+      $('.tycsa, .allindustry, .lifecyclevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
+
+      d3.selectAll(".servicevis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
+    });
+
+    $('button.source').click(function() {
+      $('.investmentfilter').removeClass('selected');
+      $(this).addClass('selected');
+
+      $('.category').html('');
+
+      $('.tycsa, .allindustry, .lifecyclevis, .servicevis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
+
+      d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 10000) + "px"; } );
+    })
+
+  }
+
+  function mobileTables() {
+    if ($(window).width() < 959) {
+      $('table.responsive').each(function(i, currentTable) {
+        var leftTable = currentTable.innerHTML;
+        var $parent = $(this).parent();
+        var $scrollparent = $parent.parent();
+        $('<table class="firstcolumn"></table>').insertBefore($parent);
+        $parent.height($(this).height());
+        $parent.addClass('mobile');
+        $scrollparent.height($(this).height());
+        $scrollparent.children('.firstcolumn').height($(this).height());
+        $('.firstcolumn').append(leftTable);
+      });
+    }
+  }
+
+  function destroyMobileTables() {
+    $('table.responsive').each(function(i, currentTable) {
+      var $parent = $(this).parent();
+      var $scrollparent = $parent.parent();
+      $scrollparent.children('.firstcolumn').remove();
+      $parent.height('auto');
+        $parent.removeClass('mobile');
+      $scrollparent.height('auto');
+    });
+  }
+
+  mobileTables();
+
+  $(window).resize(function() {
+    if (window.innerWidth > 959) {
+      if ($('table.firstcolumn').length > 0) {
+        destroyMobileTables();
+      }
+    } else {
+      if ($('table.firstcolumn').length === 0) {
+        mobileTables();
+      }
+    }
+  });
 
 })(jquery);
+
+
