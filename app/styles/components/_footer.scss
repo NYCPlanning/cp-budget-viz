@@ -17,27 +17,57 @@
   .copyright {
     font-size: 15px;
     position: relative;
-
-    &::after {
-      background: url('/images/pngs/NYC-logo-white.png');
-      bottom: -5px;
-      content: '';
-      height: 30px;
-      position: absolute;
-      right: -125px;
-      width: 85px;
-    }
   }
 
   .site-links,
   .social-links {
     @include grid-column(12);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    text-align: center;
+
+    &:first-of-type {
+      border-bottom: 1px solid $color-white;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    .copyright {
+      order: 2;
+    }
+
+    .logo {
+      order: 1;
+    }
   }
 
-  @media #{$bp-tablet-up} {
+  @media #{$bp-desktop-up} {
     .site-links,
     .social-links {
       @include grid-column(6);
+      display: table;
+      justify-content: space-between;
+      padding: 0;
+
+      &:first-of-type {
+        border-bottom: none;
+
+        li {
+          margin: 0 15px;
+        }
+      }
+
+      &:last-of-type {
+        min-width: 480px;
+
+        li {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
     }
 
     .social-header,
