@@ -94,6 +94,12 @@ import * as d3 from 'd3';
     }
   });
 
+  $('aside.content-sidebar .internal-nav li.selected').on('click', function() {
+    if (!$('aside.content-sidebar .internal-nav ol').hasClass('open')) {
+      $('aside.content-sidebar .internal-nav ol').addClass('open');
+    }
+  });
+
   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/17Gd9ey3bcv7au4B7L0ioiglFCS9diB4ntHDIQgBu1AI/pubhtml';
   var budget_array = [];
   var cat_array = [];

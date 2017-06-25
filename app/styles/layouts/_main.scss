@@ -276,6 +276,98 @@ h2 {
   }
 }
 
+aside.content-sidebar {
+  ol {
+    list-style-position: inside;
+    padding-left: 0;
+
+    li {
+      border: 1px solid $color-grey-border;
+      display: none;
+      font-size: 17px;
+      line-height: 21px;
+      padding: 15px 10px 15px 20px;
+
+      a {
+        color: $color-grey-font;
+        text-decoration: none;
+      }
+
+      &:first-of-type {
+        border-top: 2px solid $color-grey-border;
+      }
+
+      &.selected {
+        color: $color-dark-green;
+        display: list-item;
+        padding-right: 40px;
+        position: relative;
+
+        a {
+          color: $color-dark-green;
+        }
+
+        &::after {
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 10px solid $color-white;
+          content: '';
+          cursor: pointer;
+          height: 0;
+          position: absolute;
+          right: 19px;
+          top: 19px;
+          width: 0;
+        }
+
+        &::before {
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 15px solid $color-green;
+          content: '';
+          cursor: pointer;
+          height: 0;
+          position: absolute;
+          right: 15px;
+          top: 17px;
+          width: 0;
+        }
+      }
+    }
+
+    &.open {
+      li {
+        display: list-item;
+
+        &.selected {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @media #{$bp-tablet-up} {
+      li {
+        border: none;
+        border-bottom: 2px solid $color-grey-border;
+        display: list-item;
+
+        &.selected {
+          border-bottom: 2px solid $color-dark-green;
+          padding-right: 10px;
+
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
 header.content-header {
   background: url('/images/nyc-background.jpg');
   background-size: cover;
@@ -580,6 +672,10 @@ header.content-header {
   margin: 40px -20px 0 -20px;
   padding-bottom: 50px;
 
+  .allindustry {
+    cursor: pointer;
+  }
+
   .investmentfilters {
     margin: 0 auto 40px;
     max-width: 640px;
@@ -710,4 +806,43 @@ header.content-header {
 
 .main-footer {
   margin-top: 0;
+}
+
+.interior-page {
+  h1 {
+    font-family: 'GT Sectra Bold';
+    font-size: 31px;
+    line-height: 38px;
+
+    & + p {
+      color: $color-dark-green;
+      font-family: 'GT Walsheim Pro Regular';
+      font-size: 23px;
+      line-height: 29px;
+    }
+  }
+
+  h2 {
+    color: $color-dark-green;
+    font-size: 23px;
+    list-style-type: 29px;
+  }
+
+  p {
+    font-family: 'GT Spectra Book';
+    font-size: 21px;
+    line-height: 31px;
+  }
+
+  @media #{$bp-desktop-up} {
+    h1 {
+      font-size: 43px;
+      line-height: 53px;
+      text-align: center;
+    }
+
+    .main-header {
+      margin-bottom: 50px;
+    }
+  }
 }
