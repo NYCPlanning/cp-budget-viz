@@ -820,7 +820,7 @@ header.content-header {
         left: -4px;
         position: absolute;
         right: auto;
-        top: 11px;
+        top: 7px;
         width: 0;
       }
 
@@ -834,7 +834,17 @@ header.content-header {
         left: -7px;
         position: absolute;
         right: auto;
-        top: 7px;
+        top: 3px;
+      }
+
+      @media #{$bp-desktop-up} {
+        &::after {
+          top: 11px;
+        }
+
+        &::before {
+          top: 7px;
+        }
       }
     }
   }
