@@ -310,11 +310,12 @@ import * as d3 from 'd3';
         var leftTable = currentTable.innerHTML;
         var $parent = $(this).parent();
         var $scrollparent = $parent.parent();
-        $('<table class="firstcolumn"></table>').insertBefore($parent);
+        $('<div class="firstcontainer"><table class="firstcolumn"></table></div>').insertBefore($parent);
         $parent.height($(this).height());
         $parent.addClass('mobile');
         $scrollparent.height($(this).height());
-        $scrollparent.children('.firstcolumn').height($(this).height());
+        $scrollparent.children(".firstcontainer").height($(this).height());
+        $scrollparent.children(".firstcontainer").children('.firstcolumn').height($(this).height());
         $('.firstcolumn').append(leftTable);
       });
     }
@@ -324,7 +325,7 @@ import * as d3 from 'd3';
     $('table.responsive').each(function(i, currentTable) {
       var $parent = $(this).parent();
       var $scrollparent = $parent.parent();
-      $scrollparent.children('.firstcolumn').remove();
+      $scrollparent.children('.firstcontainer').remove();
       $parent.height('auto');
         $parent.removeClass('mobile');
       $scrollparent.height('auto');
