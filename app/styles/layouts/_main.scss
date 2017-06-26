@@ -258,6 +258,32 @@ h2 {
   font-size: 42px;
 }
 
+h3 {
+  color: $color-grey-font;
+  font-family: 'GT Walsheim Pro Medium';
+  font-size: 21px;
+  list-style-type: 31px;
+}
+
+ul {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+li {
+  font-family: 'GT Spectra Book';
+  font-size: 21px;
+  line-height: 31px;
+  padding-left: 1em;
+  text-indent: -.7em;
+}
+
+li::before {
+  color: $color-dark-green;
+  content: "• ";
+}
+
 .page-contain {
   margin: 0 auto;
   max-width: $max-content-width;
@@ -427,6 +453,116 @@ header.content-header {
 
 .main {
   z-index: 9999;
+}
+
+.image-tout {
+  margin-bottom: 60px;
+  width: 100%;
+
+  .image-background {
+    height: auto;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .overlay {
+    background: $color-dark-green;
+    color: $color-white;
+    margin: -15px auto 0;
+    opacity: .87;
+    padding: 10px 20px 5px;
+    position: relative;
+    width: calc(100% - 20px);
+
+    .messagetop {
+      background: none;
+      display: flex;
+      height: 40px;
+      justify-content: space-between;
+      left: 0;
+      position: absolute;
+      top: -40px;
+      width: 100%;
+
+      .messagetop-left {
+        background: $color-dark-green;
+        clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+        height: 40px;
+        width: 40px;
+      }
+
+      .messagemiddle {
+        background: $color-dark-green;
+        height: 40px;
+        width: calc(100% - 80px);
+      }
+
+      .messagetop-right {
+        background: $color-dark-green;
+        clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .messagebottom {
+      background: none;
+      bottom: -40px;
+      display: flex;
+      height: 40px;
+      justify-content: space-between;
+      left: 0;
+      position: absolute;
+      width: 100%;
+
+      .messagetop-left {
+        background: $color-dark-green;
+        clip-path: polygon(100% 0, 0 0, 100% 100%);
+        height: 40px;
+        width: 40px;
+      }
+
+      .messagemiddle {
+        background: $color-dark-green;
+        height: 40px;
+        width: calc(100% - 80px);
+      }
+
+      .messagetop-right {
+        background: $color-dark-green;
+        clip-path: polygon(100% 0, 0 100%, 0 0);
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    h4 {
+      font-family: 'GT Walsheim Pro Medium';
+      font-size: 23px;
+      line-height: 29px;
+    }
+
+    p {
+      font-family: 'GT Walsheim Pro Medium';
+      font-size: 19px;
+      line-height: 25px;
+    }
+  }
+
+  @media #{$bp-desktop-up} {
+    .overlay {
+      margin: -250px 20px 0 auto;
+      width: calc(100% - 150px);
+
+      p {
+        font-size: 19px;
+        line-height: 23px;
+      }
+    }
+  }
 }
 
 .subheader {
@@ -815,6 +951,7 @@ header.content-header {
 .chart {
   background: $color-aquablue;
   float: left;
+  margin-bottom: 30px;
   padding: 30px 10px;
   width: 100%;
 
