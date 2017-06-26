@@ -1039,7 +1039,7 @@ header.content-header {
 
     &:first-of-type {
       font-size: 15px;
-      min-height: 35px;
+      min-height: 36px;
       text-align: left;
     }
   }
@@ -1060,6 +1060,21 @@ header.content-header {
     position: absolute;
     top: 0;
     width: 50%;
+  }
+
+  table {
+    td.total {
+      border-bottom: 2px solid $color-grey-font;
+      border-top: 2px solid $color-grey-font;
+    }
+
+    th {
+      text-align: right;
+
+      &:first-of-type {
+        text-align: left;
+      }
+    }
   }
 
   table.responsive {
