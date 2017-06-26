@@ -234,6 +234,7 @@ import * as d3 from 'd3';
       var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
       $('.category').html(thisIndustry);
+      $('.back-agencies').html('<p class="more-info"><a>Back to all agencies</a></p>');
 
       $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
@@ -257,11 +258,11 @@ import * as d3 from 'd3';
 
     });
 
-    $('button.agency').click(function() {
+    $('button.agency, .back-agencies').click(function() {
       $('.investmentfilter').removeClass('selected');
-      $(this).addClass('selected');
+      $('button.agency').addClass('selected');
 
-      $('.category').html('');
+      $('.category, .back-agencies').html('');
 
       $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
@@ -272,7 +273,7 @@ import * as d3 from 'd3';
       $('.investmentfilter').removeClass('selected');
       $(this).addClass('selected');
 
-      $('.category').html('');
+      $('.category, .back-agencies').html('');
 
       $('.tycsa, .allindustry, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
@@ -283,7 +284,7 @@ import * as d3 from 'd3';
       $('.investmentfilter').removeClass('selected');
       $(this).addClass('selected');
 
-      $('.category').html('');
+      $('.category, .back-agencies').html('');
 
       $('.tycsa, .allindustry, .lifecyclevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
@@ -294,7 +295,7 @@ import * as d3 from 'd3';
       $('.investmentfilter').removeClass('selected');
       $(this).addClass('selected');
 
-      $('.category').html('');
+      $('.category, .back-agencies').html('');
 
       $('.tycsa, .allindustry, .lifecyclevis, .servicevis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 

@@ -265,25 +265,6 @@ h3 {
   list-style-type: 31px;
 }
 
-ul {
-  list-style: none;
-  margin: 0 0 20px;
-  padding: 0;
-}
-
-li {
-  font-family: 'GT Spectra Book';
-  font-size: 21px;
-  line-height: 31px;
-  padding-left: 1em;
-  text-indent: -.7em;
-}
-
-li::before {
-  color: $color-dark-green;
-  content: "• ";
-}
-
 .page-contain {
   margin: 0 auto;
   max-width: $max-content-width;
@@ -816,8 +797,49 @@ header.content-header {
     cursor: pointer;
   }
 
+  h3.category {
+    font-family: 'GT Walsheim Pro Medium';
+    font-size: 23px;
+    line-height: 29px;
+    margin-bottom: 10px;
+  }
+
+  .back-agencies {
+    .more-info a {
+      margin-bottom: 15px;
+      padding: 0 0 0 30px;
+
+      &::after {
+        border-bottom: 6px solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 10px solid $color-white;
+        border-top: 6px solid transparent;
+        content: '';
+        height: 0;
+        left: -4px;
+        position: absolute;
+        right: auto;
+        top: 7px;
+        width: 0;
+      }
+
+      &::before {
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 15px solid $color-green;
+        border-top: 10px solid transparent;
+        content: '';
+        height: 0;
+        left: -7px;
+        position: absolute;
+        right: auto;
+        top: 3px;
+      }
+    }
+  }
+
   .investmentfilters {
-    margin: 0 auto 40px;
+    margin: 0 auto 40px 10px;
     max-width: 640px;
   }
 
@@ -915,15 +937,27 @@ header.content-header {
     height: 0;
   }
 
+  @media #{$bp-small-tablet-up} {
+    .investmentfilters {
+      margin-left: auto;
+    }
+  }
+
   @media #{$bp-desktop-up} {
     li {
       .budget {
-        width: 300px;
+        width: 160px;
 
         .budgetname,
         .budgetpercent,
         .budgetamount {
           font-size: 18px;
+        }
+
+        .budgetamount {
+          padding: 0 0 0 20px;
+          vertical-align: middle;
+          width: 100px;
         }
 
         .budgetpercent,
@@ -939,7 +973,7 @@ header.content-header {
 
     #infrastructure {
       max-width: 1024px;
-      padding-left: 128px;
+      padding-left: 220px;
     }
   }
 }
@@ -1094,6 +1128,27 @@ header.content-header {
     font-family: 'GT Spectra Book';
     font-size: 21px;
     line-height: 31px;
+  }
+
+  .content-body {
+    ul {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      font-family: 'GT Spectra Book';
+      font-size: 21px;
+      line-height: 31px;
+      padding-left: 1em;
+      text-indent: -.7em;
+    }
+
+    li::before {
+      color: $color-dark-green;
+      content: "• ";
+    }
   }
 
   @media #{$bp-desktop-up} {
