@@ -762,7 +762,7 @@ header.content-header {
       width: calc(33.3% - 20px);
     }
 
-    @media #{$bp-desktop-large-up} {
+    @media (min-width: 1120px) {
       height: 464px;
     }
   }
