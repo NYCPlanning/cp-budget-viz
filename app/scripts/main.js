@@ -304,6 +304,14 @@ import * as d3 from 'd3';
 
   }
 
+  // mobile agencies nav
+  $('.agencylist').change(function() {
+    var urlNext = $(".agencylist option:selected").attr('class');
+    if (urlNext === 'transportation') {
+      window.location.href = '/transportation_overview.html';
+    }
+  });
+
   function mobileTables() {
     if ($(window).width() < 959) {
       $('table.responsive').each(function(i, currentTable) {
