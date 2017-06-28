@@ -115,7 +115,7 @@ import * as d3 from 'd3';
 
     if ($('.standalone').length > 0) {
 
-      var budget_array = [];
+      var small_budget_array = [];
       var budgetTotal = 0;
       var divideBy = 1000;
 
@@ -140,13 +140,13 @@ import * as d3 from 'd3';
 
           by_cat.appendTo("#infrastructure");
           budgetTotal += parseInt(numBudget);
-          budget_array.push(numBudget);
+          small_budget_array.push(numBudget);
         }
       });
 
       $('.budget-dollars').html(budgetTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
 
-      d3.selectAll(".budget-portion").data(budget_array).transition().style("height", function(d) { return (d / divideBy) + "px"; } );
+      d3.selectAll(".budget-portion").data(small_budget_array).transition().style("height", function(d) { return (d / divideBy) + "px"; } );
 
     }
 

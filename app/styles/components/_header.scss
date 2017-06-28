@@ -10,6 +10,28 @@
   }
 }
 
+@media #{$bp-desktop-up} {
+  .index-page {
+    .main-header {
+      height: 60px;
+
+      .header-links {
+        height: 40px;
+      }
+
+      a.branding {
+        top: 120px;
+      }
+    }
+
+    .content-header {
+      h3 {
+        margin: 0 0 150px;
+      }
+    }
+  }
+}
+
 .main-header {
   background: $color-white;
   color: #000;
