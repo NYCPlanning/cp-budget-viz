@@ -288,6 +288,15 @@ h3 {
 
   .content-body {
     @include grid-column(9);
+
+    section {
+      margin: 0 50px;
+
+      .image-tout {
+        margin: 0 -50px 60px;
+        width: calc(100% + 100px);
+      }
+    }
   }
 }
 
