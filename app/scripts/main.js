@@ -143,11 +143,11 @@ import * as d3 from 'd3';
 
         var displayAmountRaw = category.TYCSAllocation.toString();
         var displayAmount;
-        if (displayAmountRaw.length > 9) {
+        if (displayAmountRaw.length > 10) {
           displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
           displayAmount = displayAmount.replace(/,/,'.');
         } else {
-          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'K';
+          displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
           displayAmount = displayAmount.replace(/,/,'.');
         }
 
