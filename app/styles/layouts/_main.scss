@@ -1246,6 +1246,10 @@ header.content-header {
       font-family: 'GT Walsheim Pro Bold';
       font-size: 15px;
     }
+
+    .budget:hover {
+      background: $color-green;
+    }
   }
 
   @media #{$bp-tablet-up} {
