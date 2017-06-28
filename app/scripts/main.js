@@ -113,8 +113,45 @@ import * as d3 from 'd3';
 
   function showInfo(data, tabletop) {
 
+    if ($('.standalone').length > 0) {
+
+      var budget_array = [];
+      var budgetTotal = 0;
+      var divideBy = 1000;
+
+      $.each( tabletop.sheets("By Ten-Year Plan Category").all(), function(i, category) {
+        var toMatch = new RegExp($('.hidden-category').html());
+        if (category.ProjectType.match(toMatch)) {
+          var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+          var numBudget = category.TYCSAllocation.replace(/\,/g,'');
+
+          var displayAmountRaw = category.TYCSAllocation.toString();
+          var displayAmount;
+          if (displayAmountRaw.length > 10) {
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+            displayAmount = displayAmount.replace(/,/,'.');
+            divideBy = 10000;
+          } else {
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+            displayAmount = displayAmount.replace(/,/,'.');
+          }
+
+          var by_cat = $('<li class="budget-portion"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.TYPCategory + '</span></h4></li>');
+
+          by_cat.appendTo("#infrastructure");
+          budgetTotal += parseInt(numBudget);
+          budget_array.push(numBudget);
+        }
+      });
+
+      $('.budget-dollars').html(budgetTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+
+      d3.selectAll(".budget-portion").data(budget_array).transition().style("height", function(d) { return (d / divideBy) + "px"; } );
+
+    }
+
     if ($('.interior-page').length === 0) {
-      
+
       $.each( tabletop.sheets("By Agency").all(), function(i, infrastructure) {
         
         if (infrastructure.Agency !== 'Agency') {
@@ -135,7 +172,7 @@ import * as d3 from 'd3';
           cat_li.appendTo("#infrastructure");
 
         }
-        
+
       });
 
       $.each( tabletop.sheets("By Ten-Year Plan Category").all(), function(i, category) {

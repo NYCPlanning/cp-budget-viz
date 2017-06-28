@@ -1218,6 +1218,36 @@ header.content-header {
     }
   }
 
+  .datavis {
+    margin-left: 0;
+    margin-right: 0;
+
+    h2,
+    p {
+      text-align: center;
+    }
+
+    li {
+      display: table;
+      min-height: 30px;
+    }
+
+    #infrastructure {
+      border-bottom: 1px solid $color-grey-label;
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+    }
+
+    .hidden-category {
+      display: none;
+    }
+
+    .budget-total {
+      font-family: 'GT Walsheim Pro Bold';
+      font-size: 15px;
+    }
+  }
+
   @media #{$bp-tablet-up} {
     .content-body {
       section {
