@@ -605,7 +605,18 @@ header.content-header {
   }
 }
 
-.more-info a {
+.next {
+  text-align: center;
+}
+
+.continue {
+  border-top: 1px solid $color-grey-border;
+  margin: 20px 0 40px;
+  padding: 20px 0 0;
+}
+
+.more-info a,
+.continue a {
   background-image:
     linear-gradient(
       to right,
@@ -617,6 +628,7 @@ header.content-header {
   color: $color-dark-green;
   cursor: pointer;
   display: inline-block;
+  font-family: 'GT Walsheim Pro Regular';
   padding-right: 30px;
   position: relative;
   text-decoration: none;
@@ -971,23 +983,24 @@ header.content-header {
     li {
       .budget {
         width: 160px;
+      }
 
-        .budgetname,
-        .budgetpercent,
-        .budgetamount {
-          font-size: 18px;
-        }
+      .budgetname,
+      .budgetpercent,
+      .budgetamount {
+        font-size: 18px;
+      }
 
-        .budgetamount {
-          padding: 0 0 0 20px;
-          vertical-align: middle;
-          width: 100px;
-        }
+      .budgetamount {
+        padding: 0 0 0 20px;
+        vertical-align: middle;
+        width: 100px;
+      }
 
-        .budgetpercent,
-        .budgetamount {
-          padding: 0 30px 10px;
-        }
+      .budgetpercent,
+      .budgetamount {
+        padding: 0 0 0 10px;
+        width: 90px;
       }
     }
 
@@ -1208,6 +1221,7 @@ header.content-header {
       font-family: 'GT Spectra Book';
       font-size: 21px;
       line-height: 31px;
+      margin: 20px 0;
       padding-left: 1em;
       text-indent: -.7em;
     }

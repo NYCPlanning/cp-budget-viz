@@ -265,7 +265,7 @@ import * as d3 from 'd3';
       
 
 
-      d3.selectAll(".allindustry").data(budget_array).transition().style("height", function(d) { return (d * 1000) + "px"; } );
+      d3.selectAll(".allindustry").data(budget_array).transition().style("height", function(d) { return (d * 500) + "px"; } );
 
       $('.allindustry').click(function() {
 
@@ -291,7 +291,7 @@ import * as d3 from 'd3';
           }
         }).style("height", function(d) { 
           if ($(this).hasClass(agencyName)) { 
-            return (d / 10000) + "px"; 
+            return (d / 25000) + "px"; 
           }
         });
 
