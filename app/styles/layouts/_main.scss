@@ -830,6 +830,11 @@ header.content-header {
     cursor: pointer;
   }
 
+  .budgetlabel {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
   h3.category {
     font-family: 'GT Walsheim Pro Medium';
     font-size: 23px;

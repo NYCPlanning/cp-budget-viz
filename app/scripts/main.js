@@ -166,7 +166,7 @@ import * as d3 from 'd3';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
-          var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></li>');
+          var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></span></li>');
 
           budget_array.push(infrastructure.Percent);
           cat_li.appendTo("#infrastructure");
@@ -191,7 +191,7 @@ import * as d3 from 'd3';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
-          var by_cat = $('<li class="tycsa ' + agencyName + ' ' + serviceName + '"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname category-name">' + category.TYPCategory + '</span></h4></li>');
+          var by_cat = $('<li class="tycsa ' + agencyName + ' ' + serviceName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname category-name">' + category.TYPCategory + '</span></h4></span></li>');
 
           by_cat.appendTo("#infrastructure");
           cat_array.push(numBudget);
@@ -213,7 +213,7 @@ import * as d3 from 'd3';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
-          var by_life = $('<li class="lifecyclevis ' + lifecycleName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.LifecycleCategory + '</span></h4></li>');
+          var by_life = $('<li class="lifecyclevis ' + lifecycleName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.LifecycleCategory + '</span></h4></span></li>');
 
           by_life.appendTo("#infrastructure");
           life_array.push(lifecycleBudget);
@@ -235,7 +235,7 @@ import * as d3 from 'd3';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
-          var by_service = $('<li class="servicevis ' + serviceName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.ServiceCategory + '</span></h4></li>');
+          var by_service = $('<li class="servicevis ' + serviceName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.ServiceCategory + '</span></h4></span></li>');
 
           by_service.appendTo("#infrastructure");
           service_array.push(serviceBudget);
@@ -270,8 +270,8 @@ import * as d3 from 'd3';
 
       $('.allindustry').click(function() {
 
-        var thisIndustry = $(this).children('h4').children('.budgetname').html();
-        var thisBudget = $(this).children('h4').children('.budgetamount').html();
+        var thisIndustry = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
+        var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
         var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
         $('.category').html(thisIndustry + ' - ' + thisBudget);
@@ -301,8 +301,8 @@ import * as d3 from 'd3';
 
       $('.servicevis').click(function() {
 
-        var thisService = $(this).children('h4').children('.budgetname').html();
-        var thisBudget = $(this).children('h4').children('.budgetamount').html();
+        var thisService = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
+        var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
         var serviceName = 'service-' + thisService.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
         $('.category').html(thisService + ' - ' + thisBudget);
