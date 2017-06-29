@@ -166,7 +166,7 @@ import * as d3 from 'd3';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
-          var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><h4><span class="budgetpercent">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></li>');
+          var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></li>');
 
           budget_array.push(infrastructure.Percent);
           cat_li.appendTo("#infrastructure");
@@ -271,9 +271,10 @@ import * as d3 from 'd3';
       $('.allindustry').click(function() {
 
         var thisIndustry = $(this).children('h4').children('.budgetname').html();
+        var thisBudget = $(this).children('h4').children('.budgetamount').html();
         var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
-        $('.category').html(thisIndustry);
+        $('.category').html(thisIndustry + ' - ' + thisBudget);
         $('.back-agencies').html('<p class="more-info"><a>Back to all agencies</a></p>');
 
         $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
@@ -301,9 +302,10 @@ import * as d3 from 'd3';
       $('.servicevis').click(function() {
 
         var thisService = $(this).children('h4').children('.budgetname').html();
+        var thisBudget = $(this).children('h4').children('.budgetamount').html();
         var serviceName = 'service-' + thisService.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
-        $('.category').html(thisService);
+        $('.category').html(thisService + ' - ' + thisBudget);
         $('.back-services').html('<p class="more-info"><a>Back to all services</a></p>');
 
         $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
