@@ -403,7 +403,7 @@ header.content-header {
     font-family: "GT Sectra Display Bold";
     font-size: 31px;
     line-height: 38px;
-    margin: 35px 15% 200px;
+    margin: 35px 15% 300px;
     text-align: center;
   }
 
@@ -677,7 +677,7 @@ header.content-header {
 
 @media #{$bp-desktop-up} {
   .subheader {
-    margin: -30px auto 30px auto;
+    margin: -130px auto 30px auto;
     max-width: 990px;
 
     .submessage {
