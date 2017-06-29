@@ -668,12 +668,18 @@ header.content-header {
 }
 
 @media #{$bp-desktop-up} {
+  .partial-page {
+    &#section1 {
+      padding: 0 70px;
+    }
+  }
+
   .subheader {
     margin: -130px auto 30px auto;
     max-width: 990px;
 
     .submessage {
-      padding: 15px 30px 50px;
+      padding: 15px 70px 50px;
       text-align: center;
     }
   }

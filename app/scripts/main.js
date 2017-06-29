@@ -336,7 +336,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d * 1000) + "px"; } );
+        d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d * 500) + "px"; } );
       });
 
       $('button.lifecycle').click(function() {
