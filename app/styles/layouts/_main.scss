@@ -244,11 +244,16 @@
   min-height: 100vh;
 
   .page-contain {
-    max-width: 1280px;
+    max-width: none;
   }
 
   .main-content {
     flex-grow: 1;
+  }
+
+  .partial-page,
+  .full-page {
+    max-width: 1280px;
   }
 }
 
@@ -821,6 +826,7 @@ header.content-header {
 
     .full-page {
       @include grid-column(12);
+      float: none;
     }
 
     p {
