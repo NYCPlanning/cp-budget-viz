@@ -178,6 +178,7 @@ import * as d3 from 'd3';
       $.each( tabletop.sheets("By Ten-Year Plan Category").all(), function(i, category) {
         if (category.Agency !== 'Agency') {
           var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+          var serviceName = 'service-' + category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var numBudget = category.TYCSAllocation.replace(/\,/g,'');
 
           var displayAmountRaw = category.TYCSAllocation.toString();
@@ -190,7 +191,7 @@ import * as d3 from 'd3';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
-          var by_cat = $('<li class="tycsa ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.TYPCategory + '</span></h4></li>');
+          var by_cat = $('<li class="tycsa ' + agencyName + ' ' + serviceName + '"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname category-name">' + category.TYPCategory + '</span></h4></li>');
 
           by_cat.appendTo("#infrastructure");
           cat_array.push(numBudget);
@@ -221,7 +222,7 @@ import * as d3 from 'd3';
 
       $.each( tabletop.sheets("By Service Category").all(), function(i, category) {
         if (category.Agency !== 'ServiceCategory') {
-          var serviceName = category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
+          var serviceName = 'service-' + category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var serviceBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
 
           var displayAmountRaw = category.TYCSAllocation.toString();
@@ -297,11 +298,41 @@ import * as d3 from 'd3';
 
       });
 
+      $('.servicevis').click(function() {
+
+        var thisService = $(this).children('h4').children('.budgetname').html();
+        var serviceName = 'service-' + thisService.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
+
+        $('.category').html(thisService);
+        $('.back-services').html('<p class="more-info"><a>Back to all services</a></p>');
+
+        $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
+
+        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) { 
+          if ($(this).hasClass(serviceName)) { 
+            return 'table'; 
+          } else {
+            return 'none';
+          }
+        }).style('margin', function(d) { 
+          if ($(this).hasClass(serviceName)) { 
+            return '2px 0 0'; 
+          } else {
+            return '0';
+          }
+        }).style("height", function(d) { 
+          if ($(this).hasClass(serviceName)) { 
+            return (d / 25000) + "px"; 
+          }
+        });
+
+      });
+
       $('button.agency, .back-agencies').click(function() {
         $('.investmentfilter').removeClass('selected');
         $('button.agency').addClass('selected');
 
-        $('.category, .back-agencies').html('');
+        $('.category, .back-agencies, .back-services').html('');
 
         $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
@@ -312,18 +343,18 @@ import * as d3 from 'd3';
         $('.investmentfilter').removeClass('selected');
         $(this).addClass('selected');
 
-        $('.category, .back-agencies').html('');
+        $('.category, .back-agencies, .back-services').html('');
 
         $('.tycsa, .allindustry, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
         d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
       });
 
-      $('button.service').click(function() {
+      $('button.service, .back-services').click(function() {
         $('.investmentfilter').removeClass('selected');
-        $(this).addClass('selected');
+        $('button.service').addClass('selected');
 
-        $('.category, .back-agencies').html('');
+        $('.category, .back-agencies, .back-services').html('');
 
         $('.tycsa, .allindustry, .lifecyclevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
@@ -334,11 +365,11 @@ import * as d3 from 'd3';
         $('.investmentfilter').removeClass('selected');
         $(this).addClass('selected');
 
-        $('.category, .back-agencies').html('');
+        $('.category, .back-agencies, .back-services').html('');
 
         $('.tycsa, .allindustry, .lifecyclevis, .servicevis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 10000) + "px"; } );
+        d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
       })
 
     }
