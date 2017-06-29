@@ -310,6 +310,14 @@ aside.content-sidebar {
       line-height: 21px;
       padding: 15px 10px 15px 20px;
 
+      &:hover {
+        color: $color-dark-green;
+
+        a {
+          color: $color-dark-green;
+        }
+      }
+
       a {
         color: $color-grey-font;
         text-decoration: none;

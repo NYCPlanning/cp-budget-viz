@@ -85,6 +85,10 @@
         a {
           font-family: "GT Walsheim Pro Medium";
           margin-right: 25px;
+
+          &:hover {
+            border-bottom: 2px solid $color-dark-green;
+          }
         }
       }
 
@@ -94,8 +98,7 @@
         font-size: 17px;
         text-decoration: none;
 
-        &.selected,
-        &:hover {
+        &.selected {
           border-bottom: 2px solid $color-dark-green;
         }
       }
@@ -123,7 +126,7 @@
           position: relative;
 
           &:hover {
-            background: $color-light-green;
+            background: $color-dark-green;
           }
 
           a {
