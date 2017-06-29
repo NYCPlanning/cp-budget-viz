@@ -94,7 +94,8 @@
         font-size: 17px;
         text-decoration: none;
 
-        &.selected {
+        &.selected,
+        &:hover {
           border-bottom: 2px solid $color-dark-green;
         }
       }
