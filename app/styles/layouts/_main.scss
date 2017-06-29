@@ -627,7 +627,7 @@ header.content-header {
   background-size: 200.1% auto;
   color: $color-dark-green;
   cursor: pointer;
-  display: inline-block;
+  display: inline;
   font-family: 'GT Walsheim Pro Regular';
   padding-right: 30px;
   position: relative;
@@ -638,11 +638,11 @@ header.content-header {
     border-bottom: 6px solid transparent;
     border-left: 10px solid $color-white;
     border-top: 6px solid transparent;
+    bottom: 4px;
     content: '';
     height: 0;
     position: absolute;
     right: 10px;
-    top: 9px;
     width: 0;
   }
 
@@ -650,11 +650,11 @@ header.content-header {
     border-bottom: 10px solid transparent;
     border-left: 15px solid $color-green;
     border-top: 10px solid transparent;
+    bottom: 0;
     content: '';
     height: 0;
     position: absolute;
     right: 7px;
-    top: 5px;
     width: 0;
   }
 
@@ -668,12 +668,6 @@ header.content-header {
 }
 
 @media #{$bp-desktop-up} {
-  .partial-page {
-    &#section1 {
-      padding: 0 70px;
-    }
-  }
-
   .subheader {
     margin: -130px auto 30px auto;
     max-width: 990px;
@@ -836,7 +830,8 @@ header.content-header {
     text-align: center;
   }
 
-  .back-agencies {
+  .back-agencies,
+  .back-services {
     .more-info a {
       margin-bottom: 15px;
       padding: 0 0 0 30px;
@@ -844,7 +839,7 @@ header.content-header {
       &::after {
         border-bottom: 6px solid transparent;
         border-left: 10px solid transparent;
-        border-right: 10px solid $color-white;
+        border-right: 10px solid $color-skyblue;
         border-top: 6px solid transparent;
         content: '';
         height: 0;
@@ -875,6 +870,12 @@ header.content-header {
 
         &::before {
           top: 7px;
+        }
+      }
+
+      &:hover {
+        &::after {
+          border-right: 10px solid $color-light-green;
         }
       }
     }
