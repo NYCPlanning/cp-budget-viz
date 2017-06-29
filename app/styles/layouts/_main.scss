@@ -291,6 +291,13 @@ h3 {
   }
 }
 
+@media #{$bp-desktop-large-up} {
+  .content-body .partial-page#section-1,
+  .datavis .partial-page {
+    padding: 0 70px;
+  }
+}
+
 aside.content-sidebar {
   ol {
     list-style-position: inside;
@@ -561,6 +568,7 @@ header.content-header {
 
 .subheader {
   border-bottom: 2px solid $color-black;
+  margin-bottom: 20px;
   margin-top: -50px;
   position: relative;
 
