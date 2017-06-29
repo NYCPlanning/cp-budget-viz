@@ -974,6 +974,12 @@ header.content-header {
       vertical-align: middle;
       width: 80px;
     }
+
+    &.tycsa {
+      .budget {
+        background: $color-dark-green;
+      }
+    }
   }
 
   h4 {
