@@ -277,6 +277,11 @@ h3 {
   @include grid-container;
 }
 
+.content-container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 .content-header,
 .content-sidebar,
 .content-body {
@@ -287,7 +292,7 @@ h3 {
 @media #{$bp-tablet-up} {
   .content-sidebar {
     @include grid-column(3);
-    max-width: 250px;
+    max-width: 270px;
   }
 
   .content-body {
@@ -1331,7 +1336,8 @@ header.content-header {
   }
 
   .content-body {
-    max-width: 950px;
+    margin-left: 55px;
+    max-width: 730px;
 
     ul {
       list-style: none;
