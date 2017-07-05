@@ -244,7 +244,7 @@
   min-height: 100vh;
 
   .page-contain {
-    max-width: 1200px;
+    max-width: none;
   }
 
   .main-content {
@@ -253,7 +253,7 @@
 
   .partial-page,
   .full-page {
-    max-width: 1280px;
+    max-width: none;
   }
 }
 
