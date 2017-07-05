@@ -831,11 +831,10 @@ header.content-header {
         font-size: 17px;
         line-height: 24px;
         text-align: left;
+      }
 
-        &.more-info {
-          background-image: none;
-          line-height: 18px;
-        }
+      .more-info {
+        background-image: none;
       }
     }
 
@@ -1338,6 +1337,7 @@ header.content-header {
   .content-body {
     margin-left: 55px;
     max-width: 730px;
+    width: calc(75% - 55px);
 
     ul {
       list-style: none;
