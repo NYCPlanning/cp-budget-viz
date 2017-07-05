@@ -405,7 +405,12 @@ aside.content-sidebar {
 }
 
 header.content-header {
-  background: url('/images/nyc-background.jpg');
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, .5),
+      rgba(0, 0, 0, .5)
+    ),
+    url('/images/nyc-background.jpg');
   background-size: cover;
   margin: 0;
   width: 100%;
@@ -737,6 +742,7 @@ header.content-header {
 
   .improvements {
     margin-bottom: 40px;
+    max-width: 1200px;
   }
 
   .improvement {
@@ -754,32 +760,32 @@ header.content-header {
       width: 100%;
 
       &.improvements-buildings {
-        background: url('/images/pngs/12428.08.018.png');
+        background: url('/images/improve-buildings.jpg');
         background-size: cover;
       }
 
       &.improvements-parks {
-        background: url('/images/pngs/ER_7623_sm.png');
+        background: url('/images/improve-parks.jpg');
         background-size: cover;
       }
 
       &.improvements-schools {
-        background: url('/images/pngs/NYCHA_1_sm.png');
+        background: url('/images/improve-schools.jpg');
         background-size: cover;
       }
 
       &.improvements-paths {
-        background: url('/images/pngs/TRANSPO---Queens-Boulevard-Corridor-Calming_sm.png');
+        background: url('/images/improve-paths.jpg');
         background-size: cover;
       }
 
       &.improvements-ferries {
-        background: url('/images/pngs/TRANSPO---First-New-Ferry-arrives_sm.png');
+        background: url('/images/improve-ferries.jpg');
         background-size: cover;
       }
 
       &.improvements-shelters {
-        background: url('/images/pngs/NYCHASandyWaterproofing.png');
+        background: url('/images/improve-shelters.jpg');
         background-size: cover;
       }
     }
