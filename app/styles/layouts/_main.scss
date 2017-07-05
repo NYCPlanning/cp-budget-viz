@@ -581,7 +581,7 @@ header.content-header {
 
 .subheader {
   border-bottom: 2px solid $color-black;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   margin-top: -50px;
   position: relative;
 
@@ -694,7 +694,7 @@ header.content-header {
 
 @media #{$bp-desktop-up} {
   .subheader {
-    margin: -130px auto 30px auto;
+    margin: -130px auto 60px auto;
     max-width: 990px;
 
     .submessage {
