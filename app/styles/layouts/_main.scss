@@ -623,6 +623,10 @@ header.content-header {
   .submessage {
     background: $color-white;
     padding: 5px 30px 15px;
+
+    .more-info {
+      margin-bottom: 5px;
+    }
   }
 }
 
