@@ -244,7 +244,7 @@
   min-height: 100vh;
 
   .page-contain {
-    max-width: none;
+    max-width: 1200px;
   }
 
   .main-content {
@@ -852,6 +852,7 @@ header.content-header {
 .datavis {
   background: $color-skyblue;
   margin: 40px -20px 0 -20px;
+  max-width: none;
   padding: 50px 0;
 
   .allindustry {
@@ -861,6 +862,10 @@ header.content-header {
   .budgetlabel {
     display: table-cell;
     vertical-align: middle;
+  }
+
+  .partial-page {
+    max-width: 1200px;
   }
 
   h3.category {
