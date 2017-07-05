@@ -673,10 +673,10 @@ header.content-header {
   }
 
   &::before {
-    border-bottom: 6px solid transparent;
-    border-left: 9px solid $color-dark-green;
-    border-top: 6px solid transparent;
-    bottom: 6px;
+    border-bottom: 8px solid transparent;
+    border-left: 10px solid $color-dark-green;
+    border-top: 8px solid transparent;
+    bottom: 4px;
     content: '';
     height: 0;
     position: absolute;
