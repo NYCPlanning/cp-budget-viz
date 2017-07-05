@@ -294,6 +294,14 @@
   select {
     display: none;
   }
+
+  &:hover {
+    background: $color-dark-green;
+
+    &::after {
+      border-top: 9px solid $color-dark-green;
+    }
+  }
 }
 
 .interior-page {
