@@ -641,7 +641,8 @@ header.content-header {
 }
 
 .more-info a,
-.continue a {
+.continue a,
+.title-highlight {
   background-image:
     linear-gradient(
       to right,
@@ -689,6 +690,17 @@ header.content-header {
     &::after {
       border-left: 6px solid $color-light-green;
     }
+  }
+}
+
+.title-highlight {
+  color: $color-black;
+  font-family: 'GT Sectra Display Bold';
+  padding-right: 0;
+
+  &::after,
+  &::before {
+    display: none;
   }
 }
 
