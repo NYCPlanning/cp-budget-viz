@@ -75,23 +75,21 @@ import * as d3 from 'd3';
     $('body').toggleClass('nav-active');
   }, 200, true));
 
-  $('.header-links .agencies').on('click', function() {
+  $('.agencies').on('click', function() {
     if ($('.agencies-menu').hasClass('active')) {
       $('.agencies-menu').removeClass('active');
+      $('.main-header, .header-nav').removeClass('selected');
     } else {
       $('.agencies-menu').addClass('active');
+      if ($(this).hasClass('tabletnav')) {
+        $('.main-header, .header-nav').addClass('selected');
+      }
     }
   });
 
-  $('.header-nav .agencies').on('click', function(e) {
-    e.stopPropagation();
-    $('.main-header, .header-nav').addClass('selected');
-  });
-
-  $(document).on('click', function (e) {
-    if ($('.header-nav').hasClass('selected')) {
-      $('.main-header, .header-nav').removeClass('selected');
-    }
+  $('.main-header.selected, .header-nav.selected').on('click', function () {
+    $('.main-header, .header-nav').removeClass('selected');
+    $('.agencies-menu').removeClass('active');
   });
 
   $('aside.content-sidebar .internal-nav li.selected').on('click', function() {

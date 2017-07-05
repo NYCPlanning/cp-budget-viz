@@ -40,6 +40,28 @@ $nav-width: 100%;
       }
     }
   }
+
+  .agencies-menu {
+    margin: 0 auto;
+
+    .agencies {
+      display: inline-block;
+      width: 250px;
+    }
+
+    li {
+      margin: 0;
+      text-align: left;
+    }
+
+    &.active {
+      .agencies {
+        &::after {
+          right: 14px;
+        }
+      }
+    }
+  }
 }
 
 .main-header,
@@ -48,19 +70,29 @@ $nav-width: 100%;
     background: $color-grey-font;
 
     .unstyled-list li .agencies {
-      background: none;
-      color: $color-grey-font;
-
-      &::before,
-      &::after {
-        display: none;
-      }
-
       .agencylist {
         display: inline-block;
         position: relative;
       }
     }
+  }
+}
+
+.desktop-agencies {
+  display: none;
+}
+
+.mobile-agencies {
+  display: block;
+}
+
+@media #{$bp-tablet-up} {
+  .desktop-agencies {
+    display: block;
+  }
+
+  .mobile-agencies {
+    display: none;
   }
 }
 

@@ -46,15 +46,34 @@ header.content-header
           a(href='/priority_maintain_our_infrastructure.html').selected Priorities
         li
           a(href='/financing_program.html') Financing
-        li
-          a.agencies Agencies
-            select.agencylist
-              option Agencies
-              option.transportation Transportation &amp; Transit
-              option Environmental Protection
-              option Public Safety
-              option Education, Health, Hospitals, and Social Services
-              option Housing and Economic Development
-              option Citywide Administrative Services
-              option Culturals &amp; Recreation
-              option Energy Efficiency and Citywide Equipment
+        li.desktop-agencies
+          div.agencies-menu
+            a(href='#').agencies.tabletnav Agencies
+            ul.unstyled-list.hidden-nav
+              a(href='/transportation_overview.html')
+                li Transportation &amp; Transit
+              a(href='#')
+                li Environmental Protection
+              a(href='#')
+                li Public Safety
+              a(href='#')
+                li Education, Health, Hospitals, and Social Services
+              a(href='#')
+                li Housing and Economic Development
+              a(href='#')
+                li Citywide Administrative Services
+              a(href='#')
+                li Culturals &amp; Recreation
+              a(href='#')
+                li Energy Efficiency and Citywide Equipment
+        li.mobile-agencies
+          select.agencylist
+            option Agencies
+            option.transportation Transportation &amp; Transit
+            option Environmental Protection
+            option Public Safety
+            option Education, Health, Hospitals, and Social Services
+            option Housing and Economic Development
+            option Citywide Administrative Services
+            option Culturals &amp; Recreation
+            option Energy Efficiency and Citywide Equipment
