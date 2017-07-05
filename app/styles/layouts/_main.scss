@@ -847,7 +847,7 @@ header.content-header {
       width: calc(33.3% - 20px);
     }
 
-    @media (min-width: 1120px) {
+    @media #{$bp-desktop-extra-large-up} {
       height: 464px;
     }
   }

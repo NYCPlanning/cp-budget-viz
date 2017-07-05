@@ -1,12 +1,16 @@
 /**
  * Breakpoints
  */
+$screen-desktop-extra-large: 1200px;
 $screen-desktop-large: 1024px;
 $screen-desktop: 960px;
 $screen-tablet: 768px;
 $screen-small-tablet: 640px;
 $screen-mobile: 480px;
 
+$bp-desktop-extra-large-up: '(min-width: #{$screen-desktop-extra-large})';
+$bp-below-desktop-extra-large:
+	'(max-width: #{$screen-desktop-extra-large - 1})';
 $bp-desktop-large-up: '(min-width: #{$screen-desktop-large})';
 $bp-below-desktop-large: '(max-width: #{$screen-desktop-large - 1})';
 $bp-desktop-up: '(min-width: #{$screen-desktop})';
