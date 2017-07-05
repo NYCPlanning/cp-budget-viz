@@ -4,6 +4,11 @@
   padding: 15px 0;
 }
 
+.download-report {
+  color: $color-lightblue;
+  max-width: 11px;
+}
+
 .footer-nav {
   @include grid-container;
 
@@ -54,6 +59,7 @@
 
       &:first-of-type {
         border-bottom: none;
+        white-space: nowrap;
 
         li {
           margin: 0 15px;
