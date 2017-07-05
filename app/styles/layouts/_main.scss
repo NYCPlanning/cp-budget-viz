@@ -749,6 +749,7 @@ header.content-header {
     border: 1px solid $color-black;
     height: 564px;
     margin-bottom: 20px;
+    overflow: hidden;
     position: relative;
     width: 100%;
 
@@ -757,6 +758,7 @@ header.content-header {
       left: 0;
       position: absolute;
       top: 0;
+      transition: .5s all;
       width: 100%;
 
       &.improvements-buildings {
@@ -810,6 +812,13 @@ header.content-header {
         font-size: 17px;
         line-height: 24px;
         text-align: left;
+      }
+    }
+
+    &:hover {
+      .top-half {
+        opacity: .7;
+        transform: scale(1.1);
       }
     }
 
