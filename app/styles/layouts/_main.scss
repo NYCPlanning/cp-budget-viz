@@ -414,7 +414,7 @@ header.content-header {
       rgba(0, 0, 0, .5),
       rgba(0, 0, 0, .5)
     ),
-    url('/images/nyc-background.jpg');
+    url('/images/nyc-background.jpg') bottom;
   background-size: cover;
   margin: 0;
   width: 100%;
