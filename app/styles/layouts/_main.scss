@@ -1179,6 +1179,11 @@ header.content-header {
   max-width: 1200px;
   position: relative;
 
+  .chartpost {
+    font-size: 14px;
+    text-align: left;
+  }
+
   .firstcontainer {
     left: 0;
     overflow-x: scroll;
