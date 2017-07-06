@@ -76,10 +76,12 @@ import * as d3 from 'd3';
   }, 200, true));
 
   $('.agencies').on('click', function() {
-    if ($('.agencies-menu').hasClass('active')) {
+    if ($('.agencies-menu .unstyled-list.hidden-nav').is(':visible')) {
+      $('.unstyled-list.hidden-nav').slideUp();
       $('.agencies-menu').removeClass('active');
       $('.main-header, .header-nav').removeClass('selected');
     } else {
+      $('.unstyled-list.hidden-nav').slideDown();
       $('.agencies-menu').addClass('active');
       if ($(this).hasClass('tabletnav')) {
         $('.main-header, .header-nav').addClass('selected');
@@ -90,6 +92,7 @@ import * as d3 from 'd3';
   $('.main-header.selected, .header-nav.selected').on('click', function () {
     $('.main-header, .header-nav').removeClass('selected');
     $('.agencies-menu').removeClass('active');
+    $('.unstyled-list.hidden-nav').slideUp();
   });
 
   $('aside.content-sidebar .internal-nav li.selected').on('click', function() {

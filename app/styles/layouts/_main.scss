@@ -674,20 +674,20 @@ header.content-header {
   transition: background-position .5s ease-out;
 
   &::after {
-    border-bottom: 3px solid transparent;
-    border-left: 6px solid $color-white;
-    border-top: 3px solid transparent;
-    bottom: 9px;
+    border-bottom: 5px solid transparent;
+    border-left: 8.6px solid $color-white;
+    border-top: 5px solid transparent;
+    bottom: 7px;
     content: '';
     height: 0;
     position: absolute;
-    right: 11px;
+    right: 12px;
     width: 0;
   }
 
   &::before {
     border-bottom: 8px solid transparent;
-    border-left: 10px solid $color-dark-green;
+    border-left: 13.76px solid $color-dark-green;
     border-top: 8px solid transparent;
     bottom: 4px;
     content: '';
@@ -701,7 +701,7 @@ header.content-header {
     background-position: -99.99% 0;
 
     &::after {
-      border-left: 6px solid $color-light-green;
+      border-left: 8.6px solid $color-light-green;
     }
   }
 }
