@@ -706,28 +706,32 @@ header.content-header {
   }
 }
 
-.title-highlight {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(191, 255, 223, 0) 50%,
-      $color-light-green 50%
-    );
-  background-position: 0 0;
-  background-size: 200.1% auto;
-  color: $color-black;
-  cursor: pointer;
-  display: inline;
-  font-family: 'GT Sectra Display Bold';
-  position: relative;
-  text-decoration: none;
-  transition: background-position .5s ease-out;
-}
+// .title-highlight {
+//   background-image:
+//     linear-gradient(
+//       to right,
+//       rgba(191, 255, 223, 0) 50%,
+//       $color-light-green 50%
+//     );
+//   background-position: 0 0;
+//   background-size: 200.1% auto;
+//   color: $color-black;
+//   cursor: pointer;
+//   display: inline;
+//   font-family: 'GT Sectra Display Bold';
+//   position: relative;
+//   text-decoration: none;
+//   transition: background-position .5s ease-out;
+// }
 
 .improvement {
   &:hover {
-    .title-highlight {
+    .more-info {
       background-position: -99.99% 0;
+
+      &::after {
+        border-left-color: $color-light-green;
+      }
     }
   }
 }
@@ -835,10 +839,6 @@ header.content-header {
         font-size: 17px;
         line-height: 24px;
         text-align: left;
-      }
-
-      .more-info {
-        background-image: none;
       }
     }
 
