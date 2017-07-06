@@ -1181,7 +1181,13 @@ header.content-header {
 
   .chartpost {
     font-size: 14px;
+    margin-bottom: 0;
+    margin-top: 0;
     text-align: left;
+
+    &:first-of-type {
+      margin-top: 20px;
+    }
   }
 
   .firstcontainer {
