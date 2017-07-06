@@ -129,11 +129,11 @@ import * as d3 from 'd3';
           var displayAmountRaw = category.TYCSAllocation.toString();
           var displayAmount;
           if (displayAmountRaw.length > 10) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
             displayAmount = displayAmount.replace(/,/,'.');
             divideBy = 10000;
           } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
@@ -160,10 +160,10 @@ import * as d3 from 'd3';
           var displayAmountRaw = infrastructure.TYCSAllocation.toString();
           var displayAmount;
           if (displayAmountRaw.length > 8) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'M';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'B';
             displayAmount = displayAmount.replace(/,/,'.');
           } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
@@ -199,10 +199,10 @@ import * as d3 from 'd3';
           var displayAmountRaw = category.TYCSAllocation.toString();
           var displayAmount;
           if (displayAmountRaw.length > 10) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
             displayAmount = displayAmount.replace(/,/,'.');
           } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
@@ -221,10 +221,10 @@ import * as d3 from 'd3';
           var displayAmountRaw = category.TYCSAllocation.toString();
           var displayAmount;
           if (displayAmountRaw.length > 9) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
             displayAmount = displayAmount.replace(/,/,'.');
           } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'K';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'M';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
@@ -243,10 +243,10 @@ import * as d3 from 'd3';
           var displayAmountRaw = category.TYCSAllocation.toString();
           var displayAmount;
           if (displayAmountRaw.length > 11) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
             displayAmount = displayAmount.replace(/,/,'.');
           } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
@@ -265,10 +265,10 @@ import * as d3 from 'd3';
           var displayAmountRaw = category.TYCSAllocation.toString();
           var displayAmount;
           if (displayAmountRaw.length > 11) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'M';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
             displayAmount = displayAmount.replace(/,/,'.');
           } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'K';
+            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
             displayAmount = displayAmount.replace(/,/,'.');
           }
 
