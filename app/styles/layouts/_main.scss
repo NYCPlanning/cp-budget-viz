@@ -484,81 +484,81 @@ header.content-header {
     color: $color-white;
     margin: -15px auto 0;
     opacity: .87;
-    padding: 10px 20px 5px;
+    padding: 10px 40px 5px;
     position: relative;
     width: calc(100% - 20px);
 
     .messagetop {
       background: $color-dark-green;
-      height: 40px;
-      left: 40px;
+      height: 20px;
+      left: 20px;
       margin: 0 auto;
       position: absolute;
-      top: -40px;
-      width: calc(100% - 80px);
+      top: -20px;
+      width: calc(100% - 40px);
 
       &::after {
-        border-bottom: 30px solid transparent;
-        border-left: 30px solid $color-dark-green;
-        border-top: 30px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid $color-dark-green;
+        border-top: 15px solid transparent;
         content: '';
-        height: 40px;
+        height: 20px;
         opacity: .87;
         position: absolute;
-        right: -26px;
-        top: 5px;
+        right: -13px;
+        top: 3px;
         transform: rotate(135deg);
-        width: 40px;
+        width: 20px;
       }
 
       &::before {
-        border-bottom: 30px solid transparent;
-        border-right: 30px solid $color-dark-green;
-        border-top: 30px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid $color-dark-green;
+        border-top: 15px solid transparent;
         content: '';
-        height: 40px;
-        left: -26px;
+        height: 20px;
+        left: -13px;
         opacity: .87;
         position: absolute;
-        top: 5px;
+        top: 3px;
         transform: rotate(225deg);
-        width: 40px;
+        width: 20px;
       }
     }
 
     .messagebottom {
       background: $color-dark-green;
-      bottom: -40px;
-      height: 40px;
-      left: 40px;
+      bottom: -20px;
+      height: 20px;
+      left: 20px;
       margin: 0 auto;
       position: absolute;
-      width: calc(100% - 80px);
+      width: calc(100% - 40px);
 
       &::after {
-        border-bottom: 30px solid transparent;
-        border-left: 30px solid $color-dark-green;
-        border-top: 30px solid transparent;
-        bottom: 5px;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid $color-dark-green;
+        border-top: 15px solid transparent;
+        bottom: 3px;
         content: '';
-        height: 40px;
+        height: 20px;
         position: absolute;
-        right: -26px;
+        right: -13px;
         transform: rotate(225deg);
-        width: 40px;
+        width: 20px;
       }
 
       &::before {
-        border-bottom: 30px solid transparent;
-        border-right: 30px solid $color-dark-green;
-        border-top: 30px solid transparent;
-        bottom: 5px;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid $color-dark-green;
+        border-top: 15px solid transparent;
+        bottom: 3px;
         content: '';
-        height: 40px;
-        left: -26px;
+        height: 20px;
+        left: -13px;
         position: absolute;
         transform: rotate(135deg);
-        width: 40px;
+        width: 20px;
       }
     }
 
@@ -569,9 +569,13 @@ header.content-header {
     }
 
     p {
-      font-family: 'GT Walsheim Pro Medium';
+      font-family: 'GT Walsheim Pro Regular';
       font-size: 19px;
       line-height: 25px;
+
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -1401,7 +1405,7 @@ header.content-header {
   @media #{$bp-tablet-up} {
     .content-body {
       section {
-        margin: 0 50px;
+        margin: 0 10px 0 50px;
 
         .image-tout {
           margin: 0 -50px 60px;
