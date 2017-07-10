@@ -1113,6 +1113,18 @@ header.content-header {
   margin-top: 0;
 }
 
+.interior-page {
+  .chartpost {
+    color: $color-grey-label;
+    font-family: 'GT Walsheim Pro Regular';
+    font-size: 14px;
+    line-height: 29px;
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: left;
+  }
+}
+
 .chart {
   background: $color-aquablue;
   float: left;
@@ -1124,8 +1136,7 @@ header.content-header {
     text-align: center;
   }
 
-  .subchart,
-  .chartpost {
+  .subchart {
     color: $color-grey-label;
     font-family: 'GT Walsheim Pro Regular';
     font-size: 23px;
@@ -1178,17 +1189,6 @@ header.content-header {
   margin: 0 auto 20px;
   max-width: 1200px;
   position: relative;
-
-  .chartpost {
-    font-size: 14px;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: left;
-
-    &:first-of-type {
-      margin-top: 20px;
-    }
-  }
 
   .firstcontainer {
     left: 0;
