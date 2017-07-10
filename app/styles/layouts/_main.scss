@@ -1355,9 +1355,8 @@ header.content-header {
   }
 
   .content-body {
-    margin-left: 55px;
-    max-width: 730px;
-    width: calc(75% - 55px);
+    margin-left: 20px;
+    width: calc(100% - 40px);
 
     ul {
       list-style: none;
@@ -1420,6 +1419,10 @@ header.content-header {
 
   @media #{$bp-tablet-up} {
     .content-body {
+      margin-left: 55px;
+      max-width: 730px;
+      width: calc(75% - 55px);
+
       section {
         margin: 0 10px 0 50px;
 
