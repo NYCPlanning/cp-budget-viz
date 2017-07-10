@@ -84,6 +84,10 @@ $nav-width: 100%;
 
 .mobile-agencies {
   display: block;
+
+  .agencylist {
+    max-width: 150px;
+  }
 }
 
 @media #{$bp-tablet-up} {
