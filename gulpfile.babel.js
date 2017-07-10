@@ -85,12 +85,12 @@ gulp.task('stylelint', function() {
   return gulp.src([
     `${src}/styles/**/*.s+(a|c)ss`,
     `${src}/styles/**/*.css`,
-    `!${src}/styles/vendor/**`,
+    `!${src}/styles/vendor/**`
   ])
   .pipe($.stylelint({
     reporters: [
-      {formatter: 'string', console: true},
-    ],
+      {formatter: 'string', console: true}
+    ]
   }));
 });
 
