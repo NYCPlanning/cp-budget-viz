@@ -1,3 +1,13 @@
+.index-page header.content-header {
+  h1 {
+    width: calc(75% - 20px);
+
+    @media #{$bp-tablet-up} {
+      width: calc(75% - 35px);
+    }
+  }
+}
+
 .content-header {
   h3 {
     color: $color-white;
