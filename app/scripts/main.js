@@ -108,6 +108,18 @@ import * as d3 from 'd3';
   var service_array = [];
   var source_array = [];
 
+  var generateDisplayAmount = function(rawNumber) {
+    var number = parseInt(rawNumber.toString().replace(/,|\$|\s/g, '')) * 1000;
+
+    if (number >= 1000000000) {
+      var displayNumber = Math.round(number / 100000000) * 100000000
+      return (displayNumber / 1000000000).toString() + 'B';
+    } else {
+      var displayNumber = Math.round(number / 1000000) * 1000000
+      return (displayNumber / 1000000).toString() + 'M';
+    }
+  };
+
   Tabletop.init( { key: public_spreadsheet_url,
                          callback: showInfo,
                          debug: true } )
@@ -118,34 +130,30 @@ import * as d3 from 'd3';
 
       var small_budget_array = [];
       var budgetTotal = 0;
-      var divideBy = 1000;
 
       $.each( tabletop.sheets("By Ten-Year Plan Category").all(), function(i, category) {
         var toMatch = new RegExp($('.hidden-category').html());
         if (category.ProjectType.match(toMatch)) {
           var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var numBudget = category.TYCSAllocation.replace(/\,/g,'');
-
-          var displayAmountRaw = category.TYCSAllocation.toString();
-          var displayAmount;
-          if (displayAmountRaw.length > 10) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
-            displayAmount = displayAmount.replace(/,/,'.');
-            divideBy = 10000;
-          } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
-            displayAmount = displayAmount.replace(/,/,'.');
-          }
+          var displayAmount = generateDisplayAmount(category.TYCSAllocation);
 
           var by_cat = $('<li class="budget-portion"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.TYPCategory + '</span></h4></li>');
 
           by_cat.appendTo("#infrastructure");
-          budgetTotal += parseInt(numBudget);
+          budgetTotal += parseInt(numBudget * 1000);
           small_budget_array.push(numBudget);
         }
       });
 
-      $('.budget-dollars').html(budgetTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+      $('.budget-dollars').html(budgetTotal.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, '$1,'));
+
+      var divideBy;
+      if (small_budget_array.map(function(a) { return (parseInt(a)*1000 >= 1000000000) }).indexOf(true) ==! -1) {
+        divideBy = 10000;
+      } else {
+        divideBy = 1000;
+      };
 
       d3.selectAll(".budget-portion").data(small_budget_array).transition().style("height", function(d) { return (d / divideBy) + "px"; } );
 
@@ -154,24 +162,16 @@ import * as d3 from 'd3';
     if ($('.interior-page').length === 0) {
 
       $.each( tabletop.sheets("By Agency").all(), function(i, infrastructure) {
-        
+
         if (infrastructure.Agency !== 'Agency') {
+          console.log(infrastructure.TYCSAllocation);
 
-          var displayAmountRaw = infrastructure.TYCSAllocation.toString();
-          var displayAmount;
-          if (displayAmountRaw.length > 8) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'B';
-            displayAmount = displayAmount.replace(/,/,'.');
-          } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
-            displayAmount = displayAmount.replace(/,/,'.');
-          }
+          var displayAmount = generateDisplayAmount(infrastructure.TYCSAllocation);
 
-          var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></span></li>');
+          var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></span></li>');
 
           budget_array.push(infrastructure.Percent);
           cat_li.appendTo("#infrastructure");
-
         }
 
       });
@@ -182,6 +182,7 @@ import * as d3 from 'd3';
           var lifecycleName = category.LifeCycleCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var serviceName = 'service-' + category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var numBudget = category.TYCSAllocation.replace(/\,/g,'');
+          var displayAmount = generateDisplayAmount(category.TYCSAllocation);
           var lifeName;
 
           if (lifecycleName === '1') {
@@ -196,16 +197,6 @@ import * as d3 from 'd3';
             lifeName = 'programmaticreplacement';
           }
 
-          var displayAmountRaw = category.TYCSAllocation.toString();
-          var displayAmount;
-          if (displayAmountRaw.length > 10) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
-            displayAmount = displayAmount.replace(/,/,'.');
-          } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
-            displayAmount = displayAmount.replace(/,/,'.');
-          }
-
           var by_cat = $('<li class="tycsa ' + agencyName + ' ' + serviceName + ' ' + lifeName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname category-name">' + category.TYPCategory + '</span></h4></span></li>');
 
           by_cat.appendTo("#infrastructure");
@@ -217,18 +208,9 @@ import * as d3 from 'd3';
         if (category.Agency !== 'LifecycleCategory') {
           var lifecycleName = category.LifecycleCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var lifecycleBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
+          var displayAmount = generateDisplayAmount(category.TYCSAllocation);
 
-          var displayAmountRaw = category.TYCSAllocation.toString();
-          var displayAmount;
-          if (displayAmountRaw.length > 9) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
-            displayAmount = displayAmount.replace(/,/,'.');
-          } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 7) + 'M';
-            displayAmount = displayAmount.replace(/,/,'.');
-          }
-
-          var by_life = $('<li class="lifecyclevis ' + lifecycleName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.LifecycleCategory + '</span></h4></span></li>');
+          var by_life = $('<li class="lifecyclevis ' + lifecycleName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.LifecycleCategory + '</span></h4></span></li>');
 
           by_life.appendTo("#infrastructure");
           life_array.push(lifecycleBudget);
@@ -239,18 +221,9 @@ import * as d3 from 'd3';
         if (category.Agency !== 'ServiceCategory') {
           var serviceName = 'service-' + category.ServiceCategory.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var serviceBudget = category.TYCSAllocation.replace(/\,/g,'').replace(/\$/g,'');
+          var displayAmount = generateDisplayAmount(category.TYCSAllocation);
 
-          var displayAmountRaw = category.TYCSAllocation.toString();
-          var displayAmount;
-          if (displayAmountRaw.length > 11) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
-            displayAmount = displayAmount.replace(/,/,'.');
-          } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
-            displayAmount = displayAmount.replace(/,/,'.');
-          }
-
-          var by_service = $('<li class="servicevis ' + serviceName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.ServiceCategory + '</span></h4></span></li>');
+          var by_service = $('<li class="servicevis ' + serviceName + '"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.ServiceCategory + '</span></h4></span></li>');
 
           by_service.appendTo("#infrastructure");
           service_array.push(serviceBudget);
@@ -261,24 +234,14 @@ import * as d3 from 'd3';
         if (category.Agency !== 'Agency') {
           var agencyName = category.Agency.replace(/ /g,'').replace(/\'/g,'').replace(/\&/g,'').toLowerCase();
           var numBudget = category.TYCSAllocation.replace(/\,/g,'');
+          var displayAmount = generateDisplayAmount(category.TYCSAllocation);
 
-          var displayAmountRaw = category.TYCSAllocation.toString();
-          var displayAmount;
-          if (displayAmountRaw.length > 11) {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 9) + 'B';
-            displayAmount = displayAmount.replace(/,/,'.');
-          } else {
-            displayAmount = displayAmountRaw.substring(0, displayAmountRaw.length - 5) + 'M';
-            displayAmount = displayAmount.replace(/,/,'.');
-          }
-
-          var by_source = $('<li class="fundingvis ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">' + displayAmount + '</span> <span class="budgetname">' + category.Agency + '</span></h4></li>');
+          var by_source = $('<li class="fundingvis ' + agencyName + '"><div class="budget"></div><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + category.Agency + '</span></h4></li>');
 
           by_source.appendTo("#infrastructure");
           source_array.push(numBudget);
         }
       });
-      
 
 
       d3.selectAll(".allindustry").data(budget_array).transition().style("height", function(d) { return (d * 500) + "px"; } );
@@ -294,21 +257,21 @@ import * as d3 from 'd3';
 
         $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) { 
-          if ($(this).hasClass(agencyName)) { 
-            return 'table'; 
+        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
+          if ($(this).hasClass(agencyName)) {
+            return 'table';
           } else {
             return 'none';
           }
-        }).style('margin', function(d) { 
-          if ($(this).hasClass(agencyName)) { 
-            return '2px 0 0'; 
+        }).style('margin', function(d) {
+          if ($(this).hasClass(agencyName)) {
+            return '2px 0 0';
           } else {
             return '0';
           }
-        }).style("height", function(d) { 
-          if ($(this).hasClass(agencyName)) { 
-            return (d / 25000) + "px"; 
+        }).style("height", function(d) {
+          if ($(this).hasClass(agencyName)) {
+            return (d / 25000) + "px";
           }
         });
 
@@ -325,21 +288,21 @@ import * as d3 from 'd3';
 
         $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) { 
-          if ($(this).hasClass(serviceName)) { 
-            return 'table'; 
+        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
+          if ($(this).hasClass(serviceName)) {
+            return 'table';
           } else {
             return 'none';
           }
-        }).style('margin', function(d) { 
-          if ($(this).hasClass(serviceName)) { 
-            return '2px 0 0'; 
+        }).style('margin', function(d) {
+          if ($(this).hasClass(serviceName)) {
+            return '2px 0 0';
           } else {
             return '0';
           }
-        }).style("height", function(d) { 
-          if ($(this).hasClass(serviceName)) { 
-            return (d / 25000) + "px"; 
+        }).style("height", function(d) {
+          if ($(this).hasClass(serviceName)) {
+            return (d / 25000) + "px";
           }
         });
 
@@ -356,21 +319,21 @@ import * as d3 from 'd3';
 
         $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) { 
-          if ($(this).hasClass(lifeName)) { 
-            return 'table'; 
+        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
+          if ($(this).hasClass(lifeName)) {
+            return 'table';
           } else {
             return 'none';
           }
-        }).style('margin', function(d) { 
-          if ($(this).hasClass(lifeName)) { 
-            return '2px 0 0'; 
+        }).style('margin', function(d) {
+          if ($(this).hasClass(lifeName)) {
+            return '2px 0 0';
           } else {
             return '0';
           }
-        }).style("height", function(d) { 
-          if ($(this).hasClass(lifeName)) { 
-            return (d / 25000) + "px"; 
+        }).style("height", function(d) {
+          if ($(this).hasClass(lifeName)) {
+            return (d / 25000) + "px";
           }
         });
 
@@ -475,5 +438,3 @@ import * as d3 from 'd3';
   });
 
 })(jquery);
-
-
