@@ -164,8 +164,6 @@ import * as d3 from 'd3';
       $.each( tabletop.sheets("By Agency").all(), function(i, infrastructure) {
 
         if (infrastructure.Agency !== 'Agency') {
-          console.log(infrastructure.TYCSAllocation);
-
           var displayAmount = generateDisplayAmount(infrastructure.TYCSAllocation);
 
           var cat_li = $('<li class="allindustry" style="margin: 2px 0 0; display: table;"><div class="budget"></div><span class="budgetlabel"><h4><span class="budgetamount">$' + displayAmount + '</span> <span class="budgetname">' + infrastructure.Agency + '</span></h4></span></li>');
