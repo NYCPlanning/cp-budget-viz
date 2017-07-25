@@ -788,6 +788,10 @@ header.content-header {
       transition: .5s all;
       width: 100%;
 
+      &.test-3 {
+        padding: 10px 20px;
+      }
+
       &.improvements-buildings {
         background: url('/images/improve-buildings.jpg');
         background-size: cover;
@@ -824,11 +828,16 @@ header.content-header {
         line-height: 30px;
         margin: 21px 0 10px;
         text-align: left;
+
+        &.below {
+          margin: 10px 0 0;
+        }
       }
 
       p {
         font-size: 17px;
         line-height: 24px;
+        margin: 21px 0 10px;
         text-align: left;
       }
     }
@@ -839,7 +848,18 @@ header.content-header {
       left: 0;
       padding: 0 20px;
       position: absolute;
+      transition: all .5s;
       width: 100%;
+
+      // Temp test
+      &.improvements-schools {
+        background: url('/images/improve-schools.jpg');
+        background-size: cover;
+      }
+
+      &.top-margin {
+        padding: 20px;
+      }
 
       h3 {
         color: $color-black;
@@ -847,17 +867,32 @@ header.content-header {
         line-height: 30px;
         margin: 21px 0 10px;
         text-align: left;
+
+        &.below {
+          margin: 10px 0 0;
+        }
       }
 
       p {
         font-size: 17px;
         line-height: 24px;
+        margin: 21px 0 10px;
         text-align: left;
       }
     }
 
     &:hover {
       .top-half {
+        opacity: .7;
+        transform: scale(1.1);
+
+        &.no-zoom {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .bottom-half.zoom {
         opacity: .7;
         transform: scale(1.1);
       }
