@@ -1365,6 +1365,10 @@ header.content-header {
       padding: 0;
     }
 
+    ol.legend-list {
+      padding: 0;
+    }
+
     li {
       font-family: 'GT Sectra Book';
       font-size: 21px;
@@ -1372,11 +1376,79 @@ header.content-header {
       margin: 20px 0;
       padding-left: 1em;
       text-indent: -.7em;
+
+      &.legend {
+        font-size: 17px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-indent: 0;
+      }
     }
 
     li::before {
       color: $color-dark-green;
       content: "• ";
+    }
+
+    li.quint-0::before {
+      background: url('/images/maps/Grey.jpg');
+      color: transparent;
+      display: inline-block;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    li.quint-1::before {
+      background: url('/images/maps/Green1.png');
+      color: transparent;
+      display: inline-block;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    li.quint-2::before {
+      background: url('/images/maps/Green2.png');
+      color: transparent;
+      display: inline-block;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    li.quint-3::before {
+      background: url('/images/maps/Green3.png');
+      color: transparent;
+      display: inline-block;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    li.quint-4::before {
+      background: url('/images/maps/Green4.png');
+      color: transparent;
+      display: inline-block;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    li.parks::before {
+      background: url('/images/maps/Parks.jpg');
+      color: transparent;
+      display: inline-block;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      width: 40px;
     }
   }
 
