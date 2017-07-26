@@ -653,8 +653,13 @@ header.content-header {
   padding: 20px 0 0;
 }
 
+.map-link {
+  margin-left: 15px;
+}
+
 .more-info a,
 .continue a,
+.map-link a,
 .improvement .more-info {
   background-image:
     linear-gradient(
@@ -1392,8 +1397,9 @@ header.content-header {
     }
 
     li.quint-0::before {
-      background: url('/images/maps/Grey.jpg');
+      background-color: #e1e1e1;
       color: transparent;
+      content: "";
       display: inline-block;
       height: 30px;
       margin-right: 10px;
@@ -1402,8 +1408,9 @@ header.content-header {
     }
 
     li.quint-1::before {
-      background: url('/images/maps/Green1.png');
+      background-color: #8debbc;
       color: transparent;
+      content: "";
       display: inline-block;
       height: 30px;
       margin-right: 10px;
@@ -1412,8 +1419,9 @@ header.content-header {
     }
 
     li.quint-2::before {
-      background: url('/images/maps/Green2.png');
+      background-color: #37dd8a;
       color: transparent;
+      content: "";
       display: inline-block;
       height: 30px;
       margin-right: 10px;
@@ -1422,8 +1430,9 @@ header.content-header {
     }
 
     li.quint-3::before {
-      background: url('/images/maps/Green3.png');
+      background-color: #1e9669;
       color: transparent;
+      content: "";
       display: inline-block;
       height: 30px;
       margin-right: 10px;
@@ -1432,8 +1441,9 @@ header.content-header {
     }
 
     li.quint-4::before {
-      background: url('/images/maps/Green4.png');
+      background-color: #126c3f;
       color: transparent;
+      content: "";
       display: inline-block;
       height: 30px;
       margin-right: 10px;
