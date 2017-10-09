@@ -246,7 +246,12 @@
 
   .page-contain {
     max-width: none;
+    padding-top: 50px;
     width: 100%;
+
+    @media #{$bp-tablet-up} {
+      padding-top: 0;
+    }
   }
 
   .partial-page,
