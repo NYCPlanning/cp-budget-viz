@@ -12,7 +12,7 @@
     "del": "^2.2.2",
     "eslint": "^3.18.0",
     "eslint-config-google": "^0.3.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
     "gulp-cache": "^0.4.5",
@@ -26,7 +26,7 @@
     "gulp-newer": "^1.2.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.2.1",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-stylelint": "^3.9.0",
@@ -34,7 +34,7 @@
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "^1.5.4",
     "gulp-useref": "^3.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.8.3",
     "psi": "^2.0.4",
     "run-sequence": "^1.0.1",
     "stylelint": "^7.10.1",
@@ -46,7 +46,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": "^8"
   },
   "private": true,
   "scripts": {
