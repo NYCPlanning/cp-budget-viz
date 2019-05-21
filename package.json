@@ -12,7 +12,7 @@
     "del": "^2.2.2",
     "eslint": "^3.18.0",
     "eslint-config-google": "^0.3.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
     "gulp-cache": "^0.4.5",
@@ -46,7 +46,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "engines": {
-    "node": ">=8"
+    "node": "^8"
   },
   "private": true,
   "scripts": {
