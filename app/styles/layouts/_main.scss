@@ -784,7 +784,7 @@ header.content-header {
 
   .improvement {
     border: 1px solid $color-black;
-    height: 564px;
+    height: 350px;
     margin-bottom: 20px;
     overflow: hidden;
     position: relative;
@@ -867,7 +867,7 @@ header.content-header {
     }
 
     @media #{$bp-desktop-extra-large-up} {
-      height: 464px;
+      height: 350px;
     }
   }
 
