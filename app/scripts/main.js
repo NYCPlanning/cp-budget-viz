@@ -2,7 +2,7 @@
 import jquery from 'jquery';
 import _ from 'underscore';
 import 'jquery.scrollto';
-import Tabletop from 'tabletop';
+import Tabletop from 'tabletop-v1-5-2.min';
 import * as d3 from 'd3';
 
 (function($) {
@@ -101,7 +101,9 @@ import * as d3 from 'd3';
     }
   });
 
-  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/17Gd9ey3bcv7au4B7L0ioiglFCS9diB4ntHDIQgBu1AI/pubhtml';
+  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1zQRsFRV7g7Res6mBL6HJL5Oicen9BiHbpEmu9CgHANs/edit?usp=sharing';
+  // var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/17Gd9ey3bcv7au4B7L0ioiglFCS9diB4ntHDIQgBu1AI/pubhtml#';
+  
   var budget_array = [];
   var cat_array = [];
   var life_array = [];
