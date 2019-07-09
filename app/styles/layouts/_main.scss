@@ -273,6 +273,20 @@ h3 {
   list-style-type: 31px;
 }
 
+a.tycs-home {
+  color: $color-black;
+  text-decoration: none;
+}
+
+.index-page {
+  h3 {
+    a.tycs-home {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}
+
 .page-contain {
   margin: 0 auto;
   max-width: $max-content-width;
