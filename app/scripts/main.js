@@ -243,100 +243,100 @@ import * as d3 from 'd3';
         }
       });
 
-      d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (parseInt(d) / 100000) + "px"; } );
+      d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (parseInt(d) / 225000) + "px"; } );
 
-      $('.allindustry').click(function() {
+      // $('.allindustry').click(function() {
 
-        var thisIndustry = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
-        var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
-        var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
+      //   var thisIndustry = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
+      //   var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
+      //   var agencyName = thisIndustry.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
-        $('.category').html(thisBudget + ' - ' + thisIndustry);
-        $('.back-agencies').html('<p class="more-info"><a>Back to all agencies</a></p>');
+      //   $('.category').html(thisBudget + ' - ' + thisIndustry);
+      //   $('.back-agencies').html('<p class="more-info"><a>Back to all agencies</a></p>');
 
-        $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
+      //   $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
-          if ($(this).hasClass(agencyName)) {
-            return 'table';
-          } else {
-            return 'none';
-          }
-        }).style('margin', function(d) {
-          if ($(this).hasClass(agencyName)) {
-            return '2px 0 0';
-          } else {
-            return '0';
-          }
-        }).style("height", function(d) {
-          if ($(this).hasClass(agencyName)) {
-            return (d / 25000) + "px";
-          }
-        });
+      //   d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
+      //     if ($(this).hasClass(agencyName)) {
+      //       return 'table';
+      //     } else {
+      //       return 'none';
+      //     }
+      //   }).style('margin', function(d) {
+      //     if ($(this).hasClass(agencyName)) {
+      //       return '2px 0 0';
+      //     } else {
+      //       return '0';
+      //     }
+      //   }).style("height", function(d) {
+      //     if ($(this).hasClass(agencyName)) {
+      //       return (d / 25000) + "px";
+      //     }
+      //   });
 
-      });
+      // });
 
-      $('.servicevis').click(function() {
+      // $('.servicevis').click(function() {
 
-        var thisService = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
-        var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
-        var serviceName = 'service-' + thisService.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
+      //   var thisService = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
+      //   var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
+      //   var serviceName = 'service-' + thisService.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
-        $('.category').html(thisBudget + ' - ' + thisService);
-        $('.back-services').html('<p class="more-info"><a>Back to all services</a></p>');
+      //   $('.category').html(thisBudget + ' - ' + thisService);
+      //   $('.back-services').html('<p class="more-info"><a>Back to all services</a></p>');
 
-        $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
+      //   $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
-          if ($(this).hasClass(serviceName)) {
-            return 'table';
-          } else {
-            return 'none';
-          }
-        }).style('margin', function(d) {
-          if ($(this).hasClass(serviceName)) {
-            return '2px 0 0';
-          } else {
-            return '0';
-          }
-        }).style("height", function(d) {
-          if ($(this).hasClass(serviceName)) {
-            return (d / 25000) + "px";
-          }
-        });
+      //   d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
+      //     if ($(this).hasClass(serviceName)) {
+      //       return 'table';
+      //     } else {
+      //       return 'none';
+      //     }
+      //   }).style('margin', function(d) {
+      //     if ($(this).hasClass(serviceName)) {
+      //       return '2px 0 0';
+      //     } else {
+      //       return '0';
+      //     }
+      //   }).style("height", function(d) {
+      //     if ($(this).hasClass(serviceName)) {
+      //       return (d / 25000) + "px";
+      //     }
+      //   });
 
-      });
+      // });
 
-      $('.lifecyclevis').click(function() {
+      // $('.lifecyclevis').click(function() {
 
-        var thisLife = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
-        var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
-        var lifeName = thisLife.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
+      //   var thisLife = $(this).children('.budgetlabel').children('h4').children('.budgetname').html();
+      //   var thisBudget = $(this).children('.budgetlabel').children('h4').children('.budgetamount').html();
+      //   var lifeName = thisLife.replace(/ /g,'').replace(/\'/g,'').replace(/&/g,'').replace(/amp\;/g,'').toLowerCase();
 
-        $('.category').html(thisBudget + ' - ' + thisLife);
-        $('.back-lifecycle').html('<p class="more-info"><a>Back to all lifecycles</a></p>');
+      //   $('.category').html(thisBudget + ' - ' + thisLife);
+      //   $('.back-lifecycle').html('<p class="more-info"><a>Back to all lifecycles</a></p>');
 
-        $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
+      //   $('.allindustry, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
-          if ($(this).hasClass(lifeName)) {
-            return 'table';
-          } else {
-            return 'none';
-          }
-        }).style('margin', function(d) {
-          if ($(this).hasClass(lifeName)) {
-            return '2px 0 0';
-          } else {
-            return '0';
-          }
-        }).style("height", function(d) {
-          if ($(this).hasClass(lifeName)) {
-            return (d / 25000) + "px";
-          }
-        });
+      //   d3.selectAll(".tycsa").data(cat_array).transition().style('display', function(d) {
+      //     if ($(this).hasClass(lifeName)) {
+      //       return 'table';
+      //     } else {
+      //       return 'none';
+      //     }
+      //   }).style('margin', function(d) {
+      //     if ($(this).hasClass(lifeName)) {
+      //       return '2px 0 0';
+      //     } else {
+      //       return '0';
+      //     }
+      //   }).style("height", function(d) {
+      //     if ($(this).hasClass(lifeName)) {
+      //       return (d / 25000) + "px";
+      //     }
+      //   });
 
-      });
+      // });
 
       $('button.agency, .back-agencies').click(function() {
         $('.investmentfilter').removeClass('selected');
@@ -346,7 +346,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (parseInt(d) / 100000) + "px"; } );
+        d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (parseInt(d) / 225000) + "px"; } );
       });
 
       $('button.lifecycle, .back-lifecycle').click(function() {
@@ -357,7 +357,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .allindustry, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (d / 100000) + "px"; } );
+        d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (d / 225000) + "px"; } );
       });
 
       $('button.service, .back-services').click(function() {
@@ -368,7 +368,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .allindustry, .lifecyclevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".servicevis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 100000) + "px"; } );
+        d3.selectAll(".servicevis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 225000) + "px"; } );
       });
 
       $('button.source').click(function() {
@@ -379,7 +379,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .allindustry, .lifecyclevis, .servicevis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 15000) + "px"; } );
+        d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 200000) + "px"; } );
       })
 
     }
