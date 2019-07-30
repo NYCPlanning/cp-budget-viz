@@ -617,6 +617,11 @@ header.content-header {
   margin-top: -50px;
   position: relative;
 
+  h2.front-font {
+    color: black;
+    font-family: GT Sectra Display Bold;
+  }
+
   .messagetop {
     background: $color-white;
     height: 40px;
@@ -926,9 +931,9 @@ header.content-header {
   max-width: none;
   padding: 50px 0;
 
-  .allindustry {
-    cursor: pointer;
-  }
+  // .allindustry {
+  //   cursor: pointer;
+  // }
 
   .budgetlabel {
     display: table-cell;
@@ -1332,17 +1337,17 @@ header.content-header {
         transition: background-position .5s ease-out;
       }
 
-      &:hover {
-        cursor: pointer;
+      // &:hover {
+      //   cursor: pointer;
 
-        h4 {
-          background-position: -99.99% 0;
-        }
+      //   h4 {
+      //     background-position: -99.99% 0;
+      //   }
 
-        .budget {
-          background: $color-dark-green;
-        }
-      }
+      //   .budget {
+      //     background: $color-dark-green;
+      //   }
+      // }
     }
   }
 }
