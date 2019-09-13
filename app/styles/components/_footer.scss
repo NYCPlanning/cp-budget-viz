@@ -12,6 +12,23 @@
 .footer-nav {
   @include grid-container;
 
+  .disclaimer {
+    @include grid-column(12);
+    display: flex;
+    flex-direction: column;
+
+    p {
+      color: $color-grey-label;
+      font-size: 12px;
+      padding: 10px 100px;
+
+      a {
+        color: $color-lightblue;
+        font-size: 12px;
+      }
+    }
+  }
+
   a,
   .copyright {
     color: $color-lightblue;
