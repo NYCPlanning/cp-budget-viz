@@ -1,0 +1,87 @@
+header.content-header
+  header.main-header
+
+    a(href='/').branding
+      img(src='/images/pngs/nyc-seal.png')/ 
+
+    div.header-links
+      div.left-links
+        a(href='/overview.html').selected Overview
+        a(href='/principle_maintain_new_york_citys_financial_responsibility.html') Guiding Principles
+        a(href='/priority_maintain_our_infrastructure.html') Investment Priorities
+        //- a(href='/financing_program.html') Financing
+      div.right-links
+        a(href='https://www1.nyc.gov/assets/omb/downloads/pdf/typ4-19.pdf') <img class="download-report" src="/images/download-icon.svg" /> Download Full Report
+        //- div.agencies-menu
+        //-   a(href='#').agencies Agencies
+        //-   ul.unstyled-list.hidden-nav
+        //-     a(href='/transportation_overview.html')
+        //-       li Transportation &amp; Transit
+        //-     a(href='#')
+        //-       li Environmental Protection
+        //-     a(href='#')
+        //-       li Public Safety
+        //-     a(href='#')
+        //-       li Education, Health, Hospitals, and Social Services
+        //-     a(href='#')
+        //-       li Housing and Economic Development
+        //-     a(href='#')
+        //-       li Citywide Administrative Services
+        //-     a(href='#')
+        //-       li Culturals &amp; Recreation
+        //-     a(href='#')
+        //-       li Energy Efficiency and Citywide Equipment
+
+    button(type='button').nav-toggle.js-toggle-nav
+      div#menuToggle
+        input(type="checkbox")
+        span
+        span
+        span
+    
+    nav.header-nav
+      ul.unstyled-list
+        li
+          a(href='/overview.html').selected Overview
+        li
+          a(href='/principle_maintain_new_york_citys_financial_responsibility.html') Guiding Principles
+        li
+          a(href='/priority_maintain_our_infrastructure.html') Investment Priorities
+        //- li
+        //-   a(href='/financing_program.html') Financing
+        li.desktop-agencies
+          a(href='https://www1.nyc.gov/assets/omb/downloads/pdf/typ4-19.pdf') <img class="download-report" src="/images/download-icon.svg" /> Download Full Report
+          //- div.agencies-menu
+          //-   a(href='#').agencies.tabletnav Agencies
+          //-   ul.unstyled-list.hidden-nav
+          //-     a(href='/transportation_overview.html')
+          //-       li Transportation &amp; Transit
+          //-     a(href='#')
+          //-       li Environmental Protection
+          //-     a(href='#')
+          //-       li Public Safety
+          //-     a(href='#')
+          //-       li Education, Health, Hospitals, and Social Services
+          //-     a(href='#')
+          //-       li Housing and Economic Development
+          //-     a(href='#')
+          //-       li Citywide Administrative Services
+          //-     a(href='#')
+          //-       li Culturals &amp; Recreation
+          //-     a(href='#')
+          //-       li Energy Efficiency and Citywide Equipment
+        li.mobile-agencies
+          a(href='https://www1.nyc.gov/assets/omb/downloads/pdf/typ4-19.pdf') <img class="download-report" src="/images/download-icon.svg" /> Download Full Report
+          //- select.agencylist
+          //-   option Agencies
+          //-   option.transportation Transportation &amp; Transit
+          //-   option Environmental Protection
+          //-   option Public Safety
+          //-   option Education, Health, Hospitals, and Social Services
+          //-   option Housing and Economic Development
+          //-   option Citywide Administrative Services
+          //-   option Culturals &amp; Recreation
+          //-   option Energy Efficiency and Citywide Equipment
+            
+    h3
+      a(href='/').tycs-home Ten Year Capital Strategy
