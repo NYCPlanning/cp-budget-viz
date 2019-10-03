@@ -346,7 +346,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .lifecyclevis, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (parseInt(d) / 225000) + "px"; } );
+        d3.selectAll(".allindustry").data(budget_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (parseInt(d) / 225000) + "px"; } );
       });
 
       $('button.lifecycle, .back-lifecycle').click(function() {
@@ -357,7 +357,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .allindustry, .servicevis, .fundingvis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (d / 225000) + "px"; } );
+        d3.selectAll(".lifecyclevis").data(life_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 225000) + "px"; } );
       });
 
       $('button.service, .back-services').click(function() {
@@ -379,7 +379,7 @@ import * as d3 from 'd3';
 
         $('.tycsa, .allindustry, .lifecyclevis, .servicevis').css({'height':'0'}).css({'min-height':'0'}).css({'margin':'0'}).css({'display':'none'});
 
-        d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { return (d / 200000) + "px"; } );
+        d3.selectAll(".fundingvis").data(service_array).transition().style('display','table').style('margin','2px 0 0').style("height", function(d) { console.log(d); return (d / 130000) + "px"; } );
       })
 
     }
