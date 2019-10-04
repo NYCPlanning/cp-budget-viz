@@ -327,6 +327,12 @@ a.tycs-home {
 }
 
 aside.content-sidebar {
+  p.body-disclaimer {
+    color: gray;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
   ol {
     list-style-position: inside;
     padding-left: 0;
@@ -1378,6 +1384,12 @@ header.content-header {
     font-family: 'GT Sectra Book';
     font-size: 21px;
     line-height: 31px;
+
+    .body-disclaimer {
+      color: gray;
+      font-size: 18px;
+      line-height: 26px;
+    }
   }
 
   .main-header a.branding p {
@@ -1385,6 +1397,11 @@ header.content-header {
   }
 
   .content-body {
+    p.body-disclaimer {
+      color: gray;
+      font-size: 18px;
+      line-height: 22px;
+    }
     margin-left: 20px;
     width: calc(100% - 40px);
 
